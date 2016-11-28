@@ -57,7 +57,7 @@
                                         {{-- Functions --}}
                                             <td>
                                                 <a href="" class="label label-default">Reset wachtwoord</a>
-                                                <a href="" class="label label-danger">Verwijder</a>
+                                                <a href="{{ base_url('users/destroy/' . $user->id) }}" class="label label-danger">Verwijder</a>
 
                                                 @if ($user->blocked == 0)
                                                     <a href="{{ base_url('users/status/'. $user->id .'/1') }}" class="label label-warning">Blokkeer</a>

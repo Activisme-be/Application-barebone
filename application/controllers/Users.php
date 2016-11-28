@@ -79,13 +79,13 @@ class Users extends CI_Controller
         $this->session->set_flashdata('class', $class);
         $this->session->set_flashdata('message', $message);
 
-        return redirect($_SERVER['HTTP_REFERER']);
+        redirect($_SERVER['HTTP_REFERER']);
     }
 
     /**
      * Update the user status.
      *
-     * @see    http://www.domain.tld/users/status/{userId}/{statusId}
+     * @see    GET|HEAD: http://www.domain.tld/users/status/{userId}/{statusId}
      * @return redirect
      */
     public function status()
@@ -96,6 +96,22 @@ class Users extends CI_Controller
         if (Login::find($userId)->update(['blocked' => $status])) { // Try to update the user.
             $this->session->set_flashdata('class', 'alert alert-success');
             $this->session->set_flashdata('message', 'De gebruiker zijn status is aangepast.');
+        }
+
+        redirect($_SERVER['HTTP_REFERER']);
+    }
+
+    /**
+     * Delete a login out off the system;
+     *
+     * @see    GET|HEAD: http://www.doamin.tld/users/destroy/{userId}
+     * @return redirect
+     */
+    public function destroy()
+    {
+        if (Login::destroy($this->uri->segment(3))) { // Tring to destroy the user.
+            $this->session->set_flashdata('class', 'alert alert-success');
+            $this->session->set_flashdata('message', 'De login is verwijderd');
         }
 
         redirect($_SERVER['HTTP_REFERER']);
