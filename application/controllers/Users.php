@@ -83,6 +83,25 @@ class Users extends CI_Controller
     }
 
     /**
+     * Update the user status.
+     *
+     * @see    http://www.domain.tld/users/status/{userId}/{statusId}
+     * @return redirect
+     */
+    public function status()
+    {
+        $userId = $this->uri->segment(3);
+        $status = $this->uri->segment(4);
+
+        if (Login::find($userId)->update(['blocked' => $status])) { // Try to update the user.
+            $this->session->set_flashdata('class', 'alert alert-success');
+            $this->session->set_flashdata('message', 'De gebruiker zijn status is aangepast.');
+        }
+
+        redirect($_SERVER['HTTP_REFERER']);
+    }
+
+    /**
      * Log the user out off the system.
      *
      * @see    GET|HEAD: http://www.domain.tld/users/logout

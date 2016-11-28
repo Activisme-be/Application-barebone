@@ -1,4 +1,4 @@
-a:3:{s:4:"time";i:1480337305;s:3:"ttl";i:3600;s:4:"data";s:2942:"<!DOCTYPE html>
+a:3:{s:4:"time";i:1480341444;s:3:"ttl";i:3600;s:4:"data";s:2942:"<!DOCTYPE html>
 <html lang="nl">
     <head>
         <title><?php echo  $this->config->item('app_name') ; ?> | <?php echo  $title ; ?></title>

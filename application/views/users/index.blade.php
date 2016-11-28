@@ -42,9 +42,9 @@
                                     <tr>
                                         <td><code>#U{{ $user->id }}</code></td>
                                         <td>
-                                            @if ($user->status == 0)
+                                            @if ($user->blocked == 0)
                                                 <span class="label label-success">Actief</span>
-                                            @elseif($user->status == 1)
+                                            @elseif($user->blocked == 1)
                                                 <span class="label label-danger">Geblokkeerd</span>
                                             @else
                                                 <span class="label label-info">Onbekend</span>
@@ -60,9 +60,9 @@
                                                 <a href="" class="label label-danger">Verwijder</a>
 
                                                 @if ($user->blocked == 0)
-                                                    <a href="" class="label label-warning">Blokkeer</a>
+                                                    <a href="{{ base_url('users/status/'. $user->id .'/1') }}" class="label label-warning">Blokkeer</a>
                                                 @elseif ($user->blocked == 1)
-                                                    <aé href="" class="label label-warning">Activeren</a>
+                                                    <a href="{{ base_url('users/status/'. $user->id .'/0') }}" class="label label-warning">Activeren</a>
                                                 @endif
                                             </td>
                                         {{-- /Functions --}}
