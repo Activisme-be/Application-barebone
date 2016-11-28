@@ -1,4 +1,4 @@
-a:3:{s:4:"time";i:1480342067;s:3:"ttl";i:3600;s:4:"data";s:4503:"
+a:3:{s:4:"time";i:1480343399;s:3:"ttl";i:3600;s:4:"data";s:4556:"
 
 <?php $this->_section_start('breadcrumb'); ?>
     <ol class="breadcrumb">
@@ -52,7 +52,7 @@ a:3:{s:4:"time";i:1480342067;s:3:"ttl";i:3600;s:4:"data";s:4503:"
                                         <td><?php echo  $user->email ; ?></td>
 
                                         <?php //  Functions  ?>                                            <td>
-                                                <a href="" class="label label-default">Reset wachtwoord</a>
+                                                <a href="<?php echo  base_url('users/reset/' . $user->id) ; ?>" class="label label-default">Reset wachtwoord</a>
                                                 <a href="<?php echo  base_url('users/destroy/' . $user->id) ; ?>" class="label label-danger">Verwijder</a>
 
                                                 <?php if ($user->blocked == 0): ?>

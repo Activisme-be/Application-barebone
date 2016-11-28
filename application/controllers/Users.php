@@ -26,7 +26,7 @@ class Users extends CI_Controller
     {
         parent::__construct();
         $this->load->library(['email', 'blade', 'session', 'form_validation']);
-        $this->load->helper(['url']);
+        $this->load->helper(['url', 'string']);
 
         $this->User = $this->session->userdata('logged_id');
     }
@@ -64,7 +64,7 @@ class Users extends CI_Controller
             $input['name']     = $this->input->post('name');
             $input['username'] = $this->input->post('username');
             $input['email']    = $this->input->post('email');
-            $input['password'] = $this->input->post('password');
+            $input['password'] = md5($this->input->post('password'));
             $input['blocked']  = 0;
 
             if (Login::create($input)) { // The user has been created
@@ -100,6 +100,45 @@ class Users extends CI_Controller
 
         redirect($_SERVER['HTTP_REFERER']);
     }
+
+    /**
+     * Reset a login password.
+     *
+     * @see    GET|HEAD: http://www.domain.tld/users/reset/{userId}
+     * @return redirect
+     */
+     public function reset()
+     {
+         $data['user'] = Login::find($this->uri->segment(3));
+         $data['pass'] = random_string('alnum', 18);
+
+         if ($data['user']->update(['password' => md5($data['pass'])])) { // Update the account.
+             // Email init
+             $config['smtp_host'] = "send.one.com";
+             $config['smtp_port'] = "25";
+             $config['mailtype']  = 'html';
+             $config['charset']   = 'utf-8';
+             $this->email->initialize($config);
+
+             // Set the mail notification.
+             $this->email->from($this->config->item('dev_email'), $this->config->item('dev_name'));
+             $this->email->to($data['user']->email);
+             $this->email->subject($this->config->item('app_name') . ' - Reset wachtwoord.');
+             $this->email->message($this->blade->render('email/reset', $data));
+             $this->email->set_mailtype('html');
+
+             // Sending the mail notification.
+             $this->email->send();
+             $this->email->clear();
+
+             // Set the flash message
+             $this->session->set_flashdata('class', 'alert alert-success');
+             $this->session->set_flashdata('message', 'De login zijn wachtwoord is ge-reset.');
+
+         }
+
+         redirect($_SERVER['HTTP_REFERER']);
+     }
 
     /**
      * Delete a login out off the system;
