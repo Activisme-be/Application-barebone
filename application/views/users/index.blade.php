@@ -22,7 +22,8 @@
                 <div class="box-body">
                     @if (count($users) == 0) {{-- Show info alert --}}
                         <div class="alert alert-info">
-                            <strong>Info:</strong> Er zijn geen gebruikers gevonden in het systeem gevonden.
+                            <strong><span class="fa fa-info-circle"></span> Info:</strong> 
+                            Er zijn geen gebruikers gevonden in het systeem gevonden.
                         </div>
                     @else {{-- Show users overview --}}
                     @endif

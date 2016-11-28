@@ -1,4 +1,4 @@
-a:3:{s:4:"time";i:1480335832;s:3:"ttl";i:3600;s:4:"data";s:1519:"
+a:3:{s:4:"time";i:1480336501;s:3:"ttl";i:3600;s:4:"data";s:1588:"
 
 <?php $this->_section_start('breadcrumb'); ?>
     <ol class="breadcrumb">
@@ -21,7 +21,8 @@ a:3:{s:4:"time";i:1480335832;s:3:"ttl";i:3600;s:4:"data";s:1519:"
                 </div>
                 <div class="box-body">
                     <?php if (count($users) == 0): ?> <?php //  Show info alert  ?>                        <div class="alert alert-info">
-                            <strong>Info:</strong> Er zijn geen gebruikers gevonden in het systeem gevonden.
+                            <strong><span class="fa fa-info-circle"></span> Info:</strong> 
+                            Er zijn geen gebruikers gevonden in het systeem gevonden.
                         </div>
                     <?php else: ?> <?php //  Show users overview  ?>                    <?php endif; ?>
                 </div><?php //  /.box-body  ?>            </div><?php //  /.box  ?>        </div><?php //  /.col  ?>    </div><?php //  /.row  ?>
