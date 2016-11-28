@@ -1,4 +1,4 @@
-a:3:{s:4:"time";i:1480336501;s:3:"ttl";i:3600;s:4:"data";s:1588:"
+a:3:{s:4:"time";i:1480339522;s:3:"ttl";i:3600;s:4:"data";s:4330:"
 
 <?php $this->_section_start('breadcrumb'); ?>
     <ol class="breadcrumb">
@@ -21,10 +21,51 @@ a:3:{s:4:"time";i:1480336501;s:3:"ttl";i:3600;s:4:"data";s:1588:"
                 </div>
                 <div class="box-body">
                     <?php if (count($users) == 0): ?> <?php //  Show info alert  ?>                        <div class="alert alert-info">
-                            <strong><span class="fa fa-info-circle"></span> Info:</strong> 
+                            <strong><span class="fa fa-info-circle"></span> Info:</strong>
                             Er zijn geen gebruikers gevonden in het systeem gevonden.
                         </div>
-                    <?php else: ?> <?php //  Show users overview  ?>                    <?php endif; ?>
+                    <?php else: ?> <?php //  Show users overview  ?>                        <table class="table table-condensed table-hover">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Status:</th>
+                                    <th>Username:</th>
+                                    <th>Naam:</th>
+                                    <th>Email:</th>
+                                    <th></th> <?php //  Reserved for functions  ?>                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($users as $user): ?>
+                                    <tr>
+                                        <td><code>#U<?php echo  $user->id ; ?></code></td>
+                                        <td>
+                                            <?php if ($user->status == 0): ?>
+                                                <span class="label label-success">Actief</span>
+                                            <?php elseif($user->status == 1): ?>
+                                                <span class="label label-danger">Geblokkeerd</span>
+                                            <?php else: ?>
+                                                <span class="label label-info">Onbekend</span>
+                                            <?php endif; ?>
+                                        </td>
+                                        <td><?php echo  $user->username ; ?></td>
+                                        <td><?php echo  $user->name ; ?></td>
+                                        <td><?php echo  $user->email ; ?></td>
+
+                                        <?php //  Functions  ?>                                            <td>
+                                                <a href="" class="label label-default">Reset wachtwoord</a>
+                                                <a href="" class="label label-danger">Verwijder</a>
+
+                                                <?php if ($user->blocked == 0): ?>
+                                                    <a href="" class="label label-warning">Blokkeer</a>
+                                                <?php elseif ($user->blocked == 1): ?>
+                                                    <aé href="" class="label label-warning">Activeren</a>
+                                                <?php endif; ?>
+                                            </td>
+                                        <?php //  /Functions  ?>                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    <?php endif; ?>
                 </div><?php //  /.box-body  ?>            </div><?php //  /.box  ?>        </div><?php //  /.col  ?>    </div><?php //  /.row  ?>
     <?php //  Includes  ?>        <?php echo $this->_include('users/create'); ?>
     <?php //  /Includes  ?><?php $this->_section_end(); ?>
