@@ -1,4 +1,4 @@
-a:3:{s:4:"time";i:1480341444;s:3:"ttl";i:3600;s:4:"data";s:271:"<footer class="main-footer">
+a:3:{s:4:"time";i:1480346386;s:3:"ttl";i:3600;s:4:"data";s:271:"<footer class="main-footer">
     <?php //  To the right  ?>    <div class="pull-right hidden-xs"><strong>Version:</strong> 1.0.0-rc1</div>
     <?php //  Default to the left  ?>    <strong>Copyright © 2015 <a href="#">Company</a>.</strong> All rights reserved.
 </footer>

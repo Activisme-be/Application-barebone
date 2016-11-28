@@ -115,7 +115,7 @@ class Users extends CI_Controller
          if ($data['user']->update(['password' => md5($data['pass'])])) { // Update the account.
              // Email init
              $config['smtp_host'] = "send.one.com";
-             $config['smtp_port'] = "25";
+             $config['smtp_port'] = "465";
              $config['mailtype']  = 'html';
              $config['charset']   = 'utf-8';
              $this->email->initialize($config);
@@ -128,7 +128,11 @@ class Users extends CI_Controller
              $this->email->set_mailtype('html');
 
              // Sending the mail notification.
-             $this->email->send();
+             if (! $this->email->send()) { // Check if the mail has been send.
+                show_error($this->email->print_debugger());
+             }
+
+             // Clear the mail cache.
              $this->email->clear();
 
              // Set the flash message

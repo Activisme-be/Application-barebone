@@ -12,19 +12,19 @@ class Login extends Eloquent
      *
      * @var string
      */
-     protected $table =  'users';
+    protected $table =  'users';
 
      /**
       * Mass-assign fields
       *
       * @var array
       */
-      protected $fillable = ['username', 'name', 'email', 'password', 'blocked'];
+    protected $fillable = ['username', 'name', 'email', 'password', 'blocked'];
 
      /**
       * Disable timestamps.
       *
       * @var bool
       */
-      public $timestamps = false;
+     public $timestamps = false;
 }

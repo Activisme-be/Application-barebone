@@ -160,6 +160,7 @@ class ComposerStaticInit5bb924f08583b5c21de5176e78da190b
     public static $classMap = array (
         'Blade' => __DIR__ . '/../..' . '/../../tom-manheaghe/application-barebone/application/libraries/Blade.php',
         'Login' => __DIR__ . '/../..' . '/../../tom-manheaghe/application-barebone/application/models/Login.php',
+        'Ticket' => __DIR__ . '/../..' . '/../../tom-manheaghe/application-barebone/application/models/Ticket.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

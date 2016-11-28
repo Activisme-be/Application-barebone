@@ -32,6 +32,7 @@
             <li class="header">NAVIGATIEs</li>
             {{-- Optionally, you can add icons to the links --}}
             <li><a href="{{ base_url('users') }}"><span>Gebruikersbeheer</span></a></li>
+            <li><a href="{{ base_url('tickets') }}"><span>Tickets</span></a></li>
         </ul>{{-- /.sidebar-menu --}}
     </section>
     {{-- /.sidebar --}}
