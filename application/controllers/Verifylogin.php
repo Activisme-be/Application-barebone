@@ -47,6 +47,9 @@ class Verifylogin extends CI_Controller
     /**
      * Run the login against the database.
      *
+     * @todo: build up the login model.
+     * @todo: save the user data to a session that can be used accross platforms.
+     *
      * @param  string $password
      * @return bool
      */
