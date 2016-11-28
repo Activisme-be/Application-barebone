@@ -20,7 +20,7 @@ class Verifylogin extends CI_Controller
         parent::__construct();
         $this->load->database();
 
-        $this->load->library(['session', 'blade', 'form_validation', 'email']);
+        $this->load->library(['session', 'blade', 'form_validation']);
         $this->load->helper(['string', 'url']);
     }
 
