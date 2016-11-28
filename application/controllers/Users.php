@@ -40,8 +40,9 @@ class Users extends CI_Controller
     public function index()
     {
         $data['title']            = "Users overview.";
-        $data['page_title']       = 'page title';
-        $data['page_description'] = 'Page description';
+        $data['page_title']       = 'Gebruikers beheer';
+        $data['page_description'] = 'Login module';
+        $data['users']            = Login::all();
 
         $this->blade->render('users/index', $data);
     }
