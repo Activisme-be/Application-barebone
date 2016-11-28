@@ -26,5 +26,5 @@ class Login extends Eloquent
       *
       * @var bool
       */
-      protected $timestamps = false;
+      public $timestamps = false;
 }
