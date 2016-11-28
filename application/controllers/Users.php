@@ -42,7 +42,7 @@ class Users extends CI_Controller
         $data['title']            = "Users overview.";
         $data['page_title']       = 'page title';
         $data['page_description'] = 'Page description';
-        
+
         $this->blade->render('users/index', $data);
     }
 
@@ -79,5 +79,19 @@ class Users extends CI_Controller
         $this->session->set_flashdata('message', $message);
 
         return redirect($_SERVER['HTTP_REFERER']);
+    }
+
+    /**
+     * Log the user out off the system.
+     *
+     * @see    GET|HEAD: http://www.domain.tld/users/logout
+     * @return redirect
+     */
+    public function logout()
+    {
+        $this->session->unset_userdata('logged_in');
+        $this->session->sess_destroy();
+
+        redirect('/');
     }
 }
