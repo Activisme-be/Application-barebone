@@ -1,4 +1,4 @@
-a:3:{s:4:"time";i:1480362444;s:3:"ttl";i:3600;s:4:"data";s:3496:"<div id="newTicket" class="modal fade" role="dialog">
+a:3:{s:4:"time";i:1480363691;s:3:"ttl";i:3600;s:4:"data";s:3497:"<div id="newTicket" class="modal fade" role="dialog">
     <div class="modal-dialog">
 
         <?php //  Modal content ?>        <div class="modal-content">
@@ -8,7 +8,7 @@ a:3:{s:4:"time";i:1480362444;s:3:"ttl";i:3600;s:4:"data";s:3496:"<div id="newTic
             </div>
             <div class="modal-body">
                 <form method="POST" action="<?php echo  base_url('tickets/insert') ; ?>" class="form-horizontal">
-                    <?php //  Assignee form-group --}}µ ?>                    <div class="form-group">
+                    <?php //  Assignee form-group  ?>                    <div class="form-group">
                         <label class="control-label col-sm-3">Toewijzing:</label>
 
                         <div class="col-sm-9">
@@ -52,7 +52,7 @@ a:3:{s:4:"time";i:1480362444;s:3:"ttl";i:3600;s:4:"data";s:3496:"<div id="newTic
                             Beschrijving: <span class="text-danger">*</span>
                         </label>
                         <div class="col-sm-9">
-                            <textarea name="name" rows="7" class="form-control" placeholder="beschrijving"></textarea>
+                            <textarea name="description" rows="7" class="form-control" placeholder="beschrijving"></textarea>
                         </div>
                     </div>
 

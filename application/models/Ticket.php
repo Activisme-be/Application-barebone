@@ -19,7 +19,7 @@ class Ticket extends Eloquent
      *
      * @var array
      */
-    protected $fillable = ['assignee_id', 'heading', 'description', 'category', 'status'];
+    protected $fillable = ['assignee_id', 'heading', 'description', 'category_id', 'status'];
 
     /**
      * Disable timestamps.

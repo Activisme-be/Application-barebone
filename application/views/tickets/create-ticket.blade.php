@@ -9,7 +9,7 @@
             </div>
             <div class="modal-body">
                 <form method="POST" action="{{ base_url('tickets/insert') }}" class="form-horizontal">
-                    {{-- Assignee form-group --}}µ
+                    {{-- Assignee form-group --}}
                     <div class="form-group">
                         <label class="control-label col-sm-3">Toewijzing:</label>
 
@@ -57,7 +57,7 @@
                             Beschrijving: <span class="text-danger">*</span>
                         </label>
                         <div class="col-sm-9">
-                            <textarea name="name" rows="7" class="form-control" placeholder="beschrijving"></textarea>
+                            <textarea name="description" rows="7" class="form-control" placeholder="beschrijving"></textarea>
                         </div>
                     </div>
 
