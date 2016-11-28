@@ -42,7 +42,11 @@ class Tickets extends CI_Controller
         $data['title']              = 'tickets';
         $data['page_title']         = 'Ticket Management';
         $data['page_description']   = 'Ticket module voor activisme BE';
+
+        // Query statements
         $data['tickets']            = Ticket::all();
+        $data['users']              = Login::all();
+        $data['categories']         = Category::all();
 
         $this->blade->render('tickets/index', $data);
     }

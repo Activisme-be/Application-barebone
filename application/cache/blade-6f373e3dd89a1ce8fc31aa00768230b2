@@ -1,0 +1,27 @@
+a:3:{s:4:"time";i:1480360548;s:3:"ttl";i:3600;s:4:"data";s:994:"<?php if (count($tickets) == 0): ?>
+    <div class="alert alert-info">
+        <strong><span class="fa fa-info-circle"></span> Info:</strong>
+        Er zijn geen tickets gevonden in het systeem gevonden.
+    </div>
+<?php else: ?>
+    <table class="table table-condensed table-hover">
+        <thead>
+            <tr>
+                <td>#</td>
+                <td></td> <?php //  Reserved for functions  ?>            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($tickets as $ticket): ?>
+                <tr>
+                    <td>#T<?php echo  $ticket->id ; ?></td>
+
+                    <?php //  Functions  ?>                        <td>
+                            <a href="#" class="label label-info">Bekijken</a>
+                            <a href="#" class="label label-info">Sluiten</a>
+                        </td>
+                    <?php //  /Functions  ?>                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+<?php endif; ?>
+";}

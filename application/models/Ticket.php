@@ -3,7 +3,7 @@
 use Illuminate\Database\Eloquent\Model as Eloquent;
 
 /**
- * Class Login
+ * Class Ticket
  */
 class Ticket extends Eloquent
 {
@@ -19,7 +19,7 @@ class Ticket extends Eloquent
      *
      * @var array
      */
-    protected $fillable = ['assignee_id', 'heading', 'description', 'status'];
+    protected $fillable = ['assignee_id', 'heading', 'description', 'category', 'status'];
 
     /**
      * Disable timestamps.

@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Blade' => $baseDir . '/../../tom-manheaghe/application-barebone/application/libraries/Blade.php',
+    'Category' => $baseDir . '/../../tom-manheaghe/application-barebone/application/models/Category.php',
     'Login' => $baseDir . '/../../tom-manheaghe/application-barebone/application/models/Login.php',
     'Ticket' => $baseDir . '/../../tom-manheaghe/application-barebone/application/models/Ticket.php',
 );

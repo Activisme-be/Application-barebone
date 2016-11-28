@@ -1,0 +1,53 @@
+a:3:{s:4:"time";i:1480360548;s:3:"ttl";i:3600;s:4:"data";s:2963:"
+
+<?php $this->_section_start('breadcrumb'); ?>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Ticket management</li>
+    </ol>
+<?php $this->_section_end(); ?>
+
+<?php $this->_section_start('content'); ?>
+    <div class='row'>
+        <div class='col-md-12'>
+            <?php //  Box  ?>            <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                     <li class="active"><a href="#tab_1" data-toggle="tab">Tickets</a></li>
+                     <li><a href="#tab_2" data-toggle="tab">Ticket categorieen</a></li>
+                     <li><a href="#tab_3" data-toggle="tab">Applicaties</a></li>
+
+                     <li class="dropdown pull-right">
+                         <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                             Opties <span class="caret"></span>
+                         </a>
+
+                         <ul class="dropdown-menu">
+                             <li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-toggle="modal" data-target="#newTicket">Nieuw ticket</a></li>
+                             <li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-toggle="modal" data-target="newApplication">Applicatie toevoegen</a></li>
+                             <li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-toggle="modal" data-target="newCategory">Categorie toevoegen</a></li>
+                         </ul>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <?php //  Tickets  ?>                    <div class="tab-pane active" id="tab_1">
+                        <?php echo $this->_include('tickets/panes/tickets'); ?>
+                    </div>
+                    <?php //  /Tickets  ?>
+                    <?php //  Applications  ?>                    <div class="tab-pane" id="tab_2">
+                        The European languages are members of the same family. Their separate existence is a myth.
+                    </div>
+                    <?php //  /Applications  ?>
+                    <?php //  Category  ?>                    <div class="tab-pane" id="tab_3">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    </div>
+                    <?php //  /Category  ?>                </div>
+                <?php //  /.tab-content  ?>              </div>
+        </div><?php //  /.col  ?>
+        <?php //  Includes  ?>            <?php echo $this->_include('tickets/create-ticket'); ?>
+            <?php echo $this->_include('tickets/create-application'); ?>
+            <?php echo $this->_include('tickets/create-category'); ?>
+        <?php //  /Includes  ?>    </div><?php //  /.row  ?><?php $this->_section_end(); ?>
+
+<?php echo $this->_include('layouts/application'); ?>
+";}

@@ -29,10 +29,20 @@
 
         {{-- Sidebar Menu --}}
         <ul class="sidebar-menu">
-            <li class="header">NAVIGATIEs</li>
+            <li class="header">NAVIGATIE</li>
             {{-- Optionally, you can add icons to the links --}}
-            <li><a href="{{ base_url('users') }}"><span>Gebruikersbeheer</span></a></li>
-            <li><a href="{{ base_url('tickets') }}"><span>Tickets</span></a></li>
+            <li>
+                <a href="{{ base_url('users') }}">
+                    <span class="fa fa-th"></span>
+                    <span>Gebruikersbeheer</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ base_url('tickets') }}">
+                    <span class="fa fa-th"></span>
+                    <span>Tickets</span>
+                </a>
+            </li>
         </ul>{{-- /.sidebar-menu --}}
     </section>
     {{-- /.sidebar --}}
