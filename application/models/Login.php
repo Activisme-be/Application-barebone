@@ -12,7 +12,7 @@ class Login extends Eloquent
      *
      * @var string
      */
-     protected = 'users';
+     protected $table =  'users';
 
      /**
       * Mass-assign fields
