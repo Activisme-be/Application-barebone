@@ -2,7 +2,7 @@
 
 @section('breadcrumb')
     <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="{{ base_url() }}"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Ticket management</li>
     </ol>
 @endsection

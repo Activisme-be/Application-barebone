@@ -29,7 +29,9 @@ class Ticket extends Eloquent
     public $timestamps = false;
 
     /**
+     * Assigned user relation.
      *
+     * @return collection
      */
     public function assignee()
     {
@@ -37,9 +39,9 @@ class Ticket extends Eloquent
     }
 
     /**
+     * Category relation.
      *
-     *
-     *
+     * @return collection
      */
     public function category()
     {
@@ -47,7 +49,7 @@ class Ticket extends Eloquent
     }
 
     /**
-     *
+     * Application category.
      *
      * @return collection
      */

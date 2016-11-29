@@ -130,7 +130,7 @@ class Tickets extends CI_Controller
         $ticketId = $this->uri->segment(3);
 
         $data['ticket']             = Ticket::with(['application', 'category', 'assignee'])->find($ticketId);
-        $data['page_title']         = '<code>#1'. $data['ticket']->id .'</code> ' . $data['ticket']->heading;
+        $data['page_title']         = '<code>#T'. $data['ticket']->id .'</code> ' . $data['ticket']->heading;
         $data['page_description']   = 'Ticket informatie';
 
         // printf($data['ticket']);  // For debugging propose.
