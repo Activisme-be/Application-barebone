@@ -8,7 +8,7 @@
  * @since     2016
  * @package   Activisme-BE resources
  */
-class Verifylogin extends CI_Controller
+class Verifylogin extends MY_Controller
 {
     /**
      * Vaerifylogin constructor
@@ -36,6 +36,10 @@ class Verifylogin extends CI_Controller
 
         if ($this->form_validation->run() === false) {
             // Validation fails
+
+            // printf(validation_errors());    // For debugging propose
+            // die();                          // For debugging propose
+
             $data['title'] = 'Index';
             $this->blade->render('home', $data);
         } else {
@@ -66,8 +70,10 @@ class Verifylogin extends CI_Controller
         if (count($query) === 1) { // Result is found and now we can build up the session.
             $authencation = []; // Empty session array.
 
-            foreach ($query as $info) { // Define the data to the session array.
-
+            foreach ($query as $user) { // Define the data to the session array.
+                $authencation['id']    = $user->id;
+                $authencation['name']  = $user->name;
+                $authencation['email'] = $user->email;
             }
 
             $this->session->set_userdata('logged_in', $authencation);

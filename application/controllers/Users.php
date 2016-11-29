@@ -8,7 +8,7 @@
  * @since     2016
  * @package   Activisme-BE resources
  */
-class Users extends CI_Controller
+class Users extends MY_Controller
 {
     /**
      * Authencated user session.
@@ -29,6 +29,24 @@ class Users extends CI_Controller
         $this->load->helper(['url', 'string']);
 
         $this->User = $this->session->userdata('logged_id');
+    }
+
+    /**
+     * Middleware controller.
+     *
+     * @return array
+     */
+    public function middleware()
+    {
+        /**
+         * Return the list of middlewares you want to be applied,
+         * Here is list of some valid options
+         *
+         * loggged_in                    // As used below, simplest, will be applied to all
+         * someother|except:index,list   // This will be only applied to posts()
+         * yet_another_one|only:index    // This will be only applied to index()
+         */
+        return ['logged_in'];
     }
 
     /**

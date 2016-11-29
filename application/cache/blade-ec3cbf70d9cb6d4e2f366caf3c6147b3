@@ -1,8 +1,8 @@
-a:3:{s:4:"time";i:1480412706;s:3:"ttl";i:3600;s:4:"data";s:2963:"
+a:3:{s:4:"time";i:1480426402;s:3:"ttl";i:3600;s:4:"data";s:2989:"
 
 <?php $this->_section_start('breadcrumb'); ?>
     <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="<?php echo  base_url() ; ?>"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Ticket management</li>
     </ol>
 <?php $this->_section_end(); ?>

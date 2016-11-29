@@ -8,7 +8,7 @@
  * @since     2016
  * @package   Activisme-BE resources
  */
-class Tickets extends CI_Controller
+class Tickets extends MY_Controller
 {
     /**
      * Authencated session collection.
@@ -29,6 +29,24 @@ class Tickets extends CI_Controller
         $this->load->library(['session', 'form_validation', 'blade']);
 
         $this->User = $this->session->userdata('logged_in');
+    }
+
+    /**
+     * Middleware controller.
+     *
+     * @return array
+     */
+    public function middleware()
+    {
+        /**
+         * Return the list of middlewares you want to be applied,
+         * Here is list of some valid options
+         *
+         * loggged_in                    // As used below, simplest, will be applied to all
+         * someother|except:index,list   // This will be only applied to posts()
+         * yet_another_one|only:index    // This will be only applied to index()
+         */
+        return ['logged_in|except:insert'];
     }
 
     /**

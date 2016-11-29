@@ -1,4 +1,4 @@
-a:3:{s:4:"time";i:1480419615;s:3:"ttl";i:3600;s:4:"data";s:4626:"
+a:3:{s:4:"time";i:1480420309;s:3:"ttl";i:3600;s:4:"data";s:4734:"
 
 <?php $this->_section_start('breadcrumb'); ?>
     <ol class="breadcrumb">
@@ -29,7 +29,9 @@ a:3:{s:4:"time";i:1480419615;s:3:"ttl";i:3600;s:4:"data";s:4626:"
                         <div class="comment-text">
                             <span class="username">
                                 Maria Gonzales
-                                <span class="text-muted pull-right">8:03 PM Today</span>
+                                <span class="text-muted pull-right">
+                                    <a href="" class="label label-danger">Verwijder</a>
+                                </span>
                             </span><?php //  /.username  ?>
                             It is a long established fact that a reader will be distracted
                             by the readable content of a page when looking at its layout.

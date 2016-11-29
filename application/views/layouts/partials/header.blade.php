@@ -2,7 +2,7 @@
 <header class="main-header">
 
     {{-- Logo --}}
-    <a href="index2.html" class="logo"><b>Activisme</b>BE</a>
+    <a href="{{ base_url() }}" class="logo"><b>Activisme</b>BE</a>
 
     {{-- Header Navbar --}}
     <nav class="navbar navbar-static-top" role="navigation">
@@ -21,7 +21,7 @@
                         {{-- The user image in the navbar --}}
                         <img src="{{ base_url("assets/img/user2-160x160.jpg") }}" class="user-image" alt="User Image"/>
                         {{-- hidden-xs hides the username on small devices so only the image appears. --}}
-                        <span class="hidden-xs">Alexander Pierce</span>
+                        <span class="hidden-xs">{{ $this->User['name'] }}</span>
                     </a>
                 </li>
                 <li>

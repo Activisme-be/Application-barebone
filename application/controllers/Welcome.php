@@ -8,7 +8,7 @@
  * @since     2016
  * @package   Activisme-BE resources
  */
-class Welcome extends CI_Controller
+class Welcome extends MY_Controller
 {
     /**
      * Welcome constructor

@@ -33,7 +33,9 @@
                         <div class="comment-text">
                             <span class="username">
                                 Maria Gonzales
-                                <span class="text-muted pull-right">8:03 PM Today</span>
+                                <span class="text-muted pull-right">
+                                    <a href="" class="label label-danger">Verwijder</a>
+                                </span>
                             </span>{{-- /.username --}}
 
                             It is a long established fact that a reader will be distracted
