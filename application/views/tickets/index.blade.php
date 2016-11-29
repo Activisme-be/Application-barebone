@@ -24,8 +24,8 @@
 
                          <ul class="dropdown-menu">
                              <li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-toggle="modal" data-target="#newTicket">Nieuw ticket</a></li>
-                             <li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-toggle="modal" data-target="newApplication">Applicatie toevoegen</a></li>
-                             <li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-toggle="modal" data-target="newCategory">Categorie toevoegen</a></li>
+                             <li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-toggle="modal" data-target="#newApplication">Applicatie toevoegen</a></li>
+                             <li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-toggle="modal" data-target="#newCategory">Categorie toevoegen</a></li>
                          </ul>
                     </li>
                 </ul>

@@ -1,4 +1,4 @@
-a:3:{s:4:"time";i:1480434869;s:3:"ttl";i:3600;s:4:"data";s:2989:"
+a:3:{s:4:"time";i:1480439531;s:3:"ttl";i:3600;s:4:"data";s:2991:"
 
 <?php $this->_section_start('breadcrumb'); ?>
     <ol class="breadcrumb">
@@ -23,8 +23,8 @@ a:3:{s:4:"time";i:1480434869;s:3:"ttl";i:3600;s:4:"data";s:2989:"
 
                          <ul class="dropdown-menu">
                              <li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-toggle="modal" data-target="#newTicket">Nieuw ticket</a></li>
-                             <li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-toggle="modal" data-target="newApplication">Applicatie toevoegen</a></li>
-                             <li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-toggle="modal" data-target="newCategory">Categorie toevoegen</a></li>
+                             <li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-toggle="modal" data-target="#newApplication">Applicatie toevoegen</a></li>
+                             <li role="presentation"><a role="menuitem" tabindex="-1" href="#" data-toggle="modal" data-target="#newCategory">Categorie toevoegen</a></li>
                          </ul>
                     </li>
                 </ul>
