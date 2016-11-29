@@ -1,0 +1,10 @@
+a:3:{s:4:"time";i:1480410700;s:3:"ttl";i:3600;s:4:"data";s:211:"
+
+<?php $this->_section_start('breadcrumb'); ?>
+<?php $this->_section_end(); ?>
+
+<?php $this->_section_start('content'); ?>
+<?php $this->_section_end(); ?>
+
+<?php echo $this->_include('layouts/application'); ?>
+";}

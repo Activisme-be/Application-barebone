@@ -24,9 +24,9 @@
 
                     {{-- Functions --}}
                         <td>
-                            <a href="#" class="label label-info">Bekijken</a>
+                            <a href="{{ base_url('tickets/show/' . $ticket->id) }}" class="label label-info">Bekijken</a>
                             <a href="{{ base_url('tickets/destroy/' . $ticket->id) }}" class="label label-info">Sluiten</a>
-                            <a href="#" class="label label-info">Push github</a>
+                            <a href="{{ base_url('tickets/github/' . $ticket->id) }}" class="label label-info">Push github</a>
                         </td>
                     {{-- /Functions --}}
                 </tr>

@@ -99,7 +99,24 @@ class Tickets extends CI_Controller
      */
     public function github()
     {
-        //
+        $ticket = Ticket::find($this->uri->segment(3));
+
+        // GitHub hook config.
+        $config['username'] = 'Tjoosten';
+        $config['password'] = '0474834880Tim!';
+        $config['method']   = \Github\Client::AUTH_HTTP_PASSWORD;
+
+        // GitHub hook
+        $github = new \Github\Client();
+        $github->authenticate($config['username'], $config['password'], $config['method']);
+
+        if ($github->api('issue')->create('Activisme-be', 'Server-tickets', ['title' => $ticket->heading, 'body' => $ticket->description])) {
+            // Ticket created.
+            $this->session->set_flashdata('class', 'Alert alert-success');
+            $this->session->set_flashdata('message', 'Het ticket is naar github verplaatst.');
+        }
+
+        redirect(base_url('tickets'));
     }
 
     /**
@@ -110,7 +127,16 @@ class Tickets extends CI_Controller
      */
     public function show()
     {
-        //
+        $ticketId = $this->uri->segment(3);
+
+        $data['ticket']             = Ticket::with(['application', 'category', 'assignee'])->find($ticketId);
+        $data['page_title']         = '<code>#1'. $data['ticket']->id .'</code> ' . $data['ticket']->heading;
+        $data['page_description']   = 'Ticket informatie';
+
+        // printf($data['ticket']);  // For debugging propose.
+        // die();                    // For debugging propose.
+
+        $this->blade->render('tickets/show', $data);
     }
 
     /**

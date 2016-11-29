@@ -1,4 +1,4 @@
-a:3:{s:4:"time";i:1480409342;s:3:"ttl";i:3600;s:4:"data";s:1499:"<?php if (count($tickets) == 0): ?>
+a:3:{s:4:"time";i:1480410567;s:3:"ttl";i:3600;s:4:"data";s:1611:"<?php if (count($tickets) == 0): ?>
     <div class="alert alert-info">
         <strong><span class="fa fa-info-circle"></span> Info:</strong>
         Er zijn geen tickets gevonden in het systeem gevonden.
@@ -22,9 +22,9 @@ a:3:{s:4:"time";i:1480409342;s:3:"ttl";i:3600;s:4:"data";s:1499:"<?php if (count
                     <td><?php echo  $ticket->heading ; ?></td>
 
                     <?php //  Functions  ?>                        <td>
-                            <a href="#" class="label label-info">Bekijken</a>
+                            <a href="<?php echo  base_url('tickets/show/' . $ticket->id) ; ?>" class="label label-info">Bekijken</a>
                             <a href="<?php echo  base_url('tickets/destroy/' . $ticket->id) ; ?>" class="label label-info">Sluiten</a>
-                            <a href="#" class="label label-info">Push github</a>
+                            <a href="<?php echo  base_url('tickets/github/' . $ticket->id) ; ?>" class="label label-info">Push github</a>
                         </td>
                     <?php //  /Functions  ?>                </tr>
             <?php endforeach; ?>
