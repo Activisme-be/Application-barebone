@@ -1,4 +1,4 @@
-a:3:{s:4:"time";i:1480407068;s:3:"ttl";i:3600;s:4:"data";s:1241:"<?php if (count($tickets) == 0): ?>
+a:3:{s:4:"time";i:1480409342;s:3:"ttl";i:3600;s:4:"data";s:1499:"<?php if (count($tickets) == 0): ?>
     <div class="alert alert-info">
         <strong><span class="fa fa-info-circle"></span> Info:</strong>
         Er zijn geen tickets gevonden in het systeem gevonden.
@@ -8,6 +8,8 @@ a:3:{s:4:"time";i:1480407068;s:3:"ttl";i:3600;s:4:"data";s:1241:"<?php if (count
         <thead>
             <tr>
                 <th>#</th>
+                <th>Toegewezen aan:</th>
+                <th>Categorie:</th>
                 <th>Titel:</th>
                 <th></th> <?php //  Reserved for functions  ?>            </tr>
         </thead>
@@ -15,6 +17,8 @@ a:3:{s:4:"time";i:1480407068;s:3:"ttl";i:3600;s:4:"data";s:1241:"<?php if (count
             <?php foreach ($tickets as $ticket): ?>
                 <tr>
                     <td><code>#T<?php echo  $ticket->id ; ?></code></td>
+                    <td><?php echo  $ticket->assignee->name ; ?></td>
+                    <td><span class="label label-primary"><?php echo  $ticket->category->name ; ?></span></td>
                     <td><?php echo  $ticket->heading ; ?></td>
 
                     <?php //  Functions  ?>                        <td>

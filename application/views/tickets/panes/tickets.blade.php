@@ -8,6 +8,8 @@
         <thead>
             <tr>
                 <th>#</th>
+                <th>Toegewezen aan:</th>
+                <th>Categorie:</th>
                 <th>Titel:</th>
                 <th></th> {{-- Reserved for functions --}}
             </tr>
@@ -16,6 +18,8 @@
             @foreach ($tickets as $ticket)
                 <tr>
                     <td><code>#T{{ $ticket->id }}</code></td>
+                    <td>{{ $ticket->assignee->name }}</td>
+                    <td><span class="label label-primary">{{ $ticket->category->name }}</span></td>
                     <td>{{ $ticket->heading }}</td>
 
                     {{-- Functions --}}
