@@ -3,23 +3,23 @@
 use Illuminate\Database\Eloquent\Model as Eloquent;
 
 /**
- * Class Login
+ * Class applications
  */
-class Login extends Eloquent
+class Applications extends Eloquent
 {
     /**
      * Database table
      *
      * @var string
      */
-    protected $table =  'users';
+    protected $table = 'applications';
 
     /**
-     * Mass-assign fields
+     * Mass-assign fields.
      *
      * @var array
      */
-    protected $fillable = ['username', 'name', 'email', 'password', 'blocked'];
+    protected $fillable = ['user_id', 'name', 'git_url', 'server_url'];
 
     /**
      * Disable timestamps.

@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Applications' => $baseDir . '/../../tom-manheaghe/application-barebone/application/models/Applications.php',
     'Blade' => $baseDir . '/../../tom-manheaghe/application-barebone/application/libraries/Blade.php',
     'Category' => $baseDir . '/../../tom-manheaghe/application-barebone/application/models/Category.php',
     'Login' => $baseDir . '/../../tom-manheaghe/application-barebone/application/models/Login.php',

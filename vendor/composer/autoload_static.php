@@ -158,6 +158,7 @@ class ComposerStaticInit5bb924f08583b5c21de5176e78da190b
     );
 
     public static $classMap = array (
+        'Applications' => __DIR__ . '/../..' . '/../../tom-manheaghe/application-barebone/application/models/Applications.php',
         'Blade' => __DIR__ . '/../..' . '/../../tom-manheaghe/application-barebone/application/libraries/Blade.php',
         'Category' => __DIR__ . '/../..' . '/../../tom-manheaghe/application-barebone/application/models/Category.php',
         'Login' => __DIR__ . '/../..' . '/../../tom-manheaghe/application-barebone/application/models/Login.php',

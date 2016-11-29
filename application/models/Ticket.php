@@ -27,4 +27,32 @@ class Ticket extends Eloquent
      * @var bool
      */
     public $timestamps = false;
+
+    /**
+     *
+     */
+    public function assignee()
+    {
+        return $this->belongsTo();
+    }
+
+    /**
+     *
+     *
+     *
+     */
+    public function category()
+    {
+        return $this->belongsTo();
+    }
+
+    /**
+     *
+     *
+     * @return collection
+     */
+    public function application()
+    {
+        return $this->belongsTo();
+    }
 }
