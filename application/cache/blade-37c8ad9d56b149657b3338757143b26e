@@ -1,6 +1,6 @@
-a:3:{s:4:"time";i:1480426565;s:3:"ttl";i:3600;s:4:"data";s:1381:"<?php //  Main Header  ?><header class="main-header">
+a:3:{s:4:"time";i:1480432788;s:3:"ttl";i:3600;s:4:"data";s:1397:"<?php //  Main Header  ?><header class="main-header">
 
-    <?php //  Logo  ?>    <a href="index2.html" class="logo"><b>Activisme</b>BE</a>
+    <?php //  Logo  ?>    <a href="<?php echo  base_url() ; ?>" class="logo"><b>Activisme</b>BE</a>
 
     <?php //  Header Navbar  ?>    <nav class="navbar navbar-static-top" role="navigation">
         <?php //  Sidebar toggle button ?>        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">

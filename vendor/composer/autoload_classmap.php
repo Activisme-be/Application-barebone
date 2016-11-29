@@ -10,5 +10,7 @@ return array(
     'Blade' => $baseDir . '/../../tom-manheaghe/application-barebone/application/libraries/Blade.php',
     'Category' => $baseDir . '/../../tom-manheaghe/application-barebone/application/models/Category.php',
     'Login' => $baseDir . '/../../tom-manheaghe/application-barebone/application/models/Login.php',
+    'MY_Controller' => $baseDir . '/../../tom-manheaghe/application-barebone/application/core/MY_Controller.php',
+    'Reactions' => $baseDir . '/../../tom-manheaghe/application-barebone/application/models/Reactions.php',
     'Ticket' => $baseDir . '/../../tom-manheaghe/application-barebone/application/models/Ticket.php',
 );

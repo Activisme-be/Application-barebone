@@ -25,32 +25,52 @@
                 </div>{{-- /.box-body --}}
 
 
-                <div class="box-footer box-comments">
-                    <div class="box-comment"> {{-- Comment module --}}
-                        {{-- User image --}}
-                        <img class="img-circle img-sm" src="{{ base_url("assets/img/user2-160x160.jpg") }}" alt="User Image">
+                <div class="box-footer box-comments"> {{-- Comment module --}}
+                    @if ((int) count($ticket->reactions) === 0)
+                        <div class="box-comment">  {{-- Box comment --}}
+                            {{-- User image --}}
+                            <img class="img-circle img-sm" src="{{ base_url("assets/img/user2-160x160.jpg") }}" alt="User Image">
 
-                        <div class="comment-text">
-                            <span class="username">
-                                Maria Gonzales
-                                <span class="text-muted pull-right">
-                                    <a href="" class="label label-danger">Verwijder</a>
-                                </span>
-                            </span>{{-- /.username --}}
+                            <div class="comment-text">
+                                <span class="username">
+                                    Server
+                                </span>{{-- /.username --}}
 
-                            It is a long established fact that a reader will be distracted
-                            by the readable content of a page when looking at its layout.
-                        </div>
-                        {{-- /.comment-text --}}
-                    </div>
-                    {{-- /.box-comment --}}
-                </div>
+                                Er zijn nog geen reacties op dit ticket.
+                            </div>
+                            {{-- /.comment-text --}}
+                        </div> {{-- Box comment --}}
+                    @else
+                        @foreach ($ticket->reactions as $comment)
+                            <div class="box-comment">  {{-- Box comment --}}
+                                {{-- User image --}}
+                                <img class="img-circle img-sm" src="{{ base_url("assets/img/user2-160x160.jpg") }}" alt="User Image">
+
+                                <div class="comment-text">
+                                    <span class="username">
+                                        {{ $comment->author->name }}
+                                        <span class="text-muted pull-right">
+                                            @if ($comment->author->id === $this->User['id'])
+                                                <a href="" class="label label-warning">Wijzig</a>
+                                            @endif
+                                            <a href="{{ base_url('comment/destroy/' . $ticket->id . '/' . $comment->id) }}" class="label label-danger">Verwijder</a>
+                                        </span>
+                                    </span>{{-- /.username --}}
+
+                                    {{ $comment->comment }}
+                                </div>
+                                {{-- /.comment-text --}}
+                            </div> {{-- Box comment --}}
+                        @endforeach
+                    @endif
+                </div> {{-- /comment modules --}}
+
                 <div class="box-footer">
-                    <form action="#" method="post">
+                    <form id="input-enter" action="{{ base_url('comment/insert/'. $ticket->id) }}" method="post">
                         <img class="img-responsive img-circle img-sm" src="{{ base_url("assets/img/user2-160x160.jpg") }}" alt="Alt Text">
                         {{-- .img-push is used to add margin to elements next to floating images --}}
                         <div class="img-push">
-                            <input type="text" class="form-control input-sm" placeholder="Press enter to post comment">
+                            <input type="text" name="comment" class="form-control input-sm" placeholder="Druk enter om te reageren.">
                         </div>
                     </form>
                 </div> {{-- /comment module --}}

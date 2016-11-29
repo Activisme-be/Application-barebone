@@ -19,7 +19,9 @@ class Ticket extends Eloquent
      *
      * @var array
      */
-    protected $fillable = ['assignee_id', 'heading', 'description', 'category_id', 'status'];
+    protected $fillable = [
+        'assignee_id', 'heading', 'description', 'category_id', 'status', 'application_id'
+    ];
 
     /**
      * Disable timestamps.
@@ -29,9 +31,20 @@ class Ticket extends Eloquent
     public $timestamps = false;
 
     /**
+     * OneToMany relationship for the comments.
+     *
+     * @return array|collection
+     */
+    public function reactions()
+    {
+        return $this->belongstoMany('Reactions');
+    }
+
+
+    /**
      * Assigned user relation.
      *
-     * @return collection
+     * @return array|collection
      */
     public function assignee()
     {
@@ -41,7 +54,7 @@ class Ticket extends Eloquent
     /**
      * Category relation.
      *
-     * @return collection
+     * @return array|collection
      */
     public function category()
     {
@@ -51,7 +64,7 @@ class Ticket extends Eloquent
     /**
      * Application category.
      *
-     * @return collection
+     * @return array|collection
      */
     public function application()
     {

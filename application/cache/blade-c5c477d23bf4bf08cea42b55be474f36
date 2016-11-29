@@ -1,4 +1,4 @@
-a:3:{s:4:"time";i:1480426670;s:3:"ttl";i:3600;s:4:"data";s:2751:"<div id="newUser" class="modal fade" role="dialog">
+a:3:{s:4:"time";i:1480432788;s:3:"ttl";i:3600;s:4:"data";s:2751:"<div id="newUser" class="modal fade" role="dialog">
     <div class="modal-dialog">
 
         <?php //  Modal content  ?>        <div class="modal-content">

@@ -60,9 +60,10 @@ class Tickets extends MY_Controller
         $data['title']             = 'tickets';
         $data['page_title']        = 'Ticket Management';
         $data['page_description']  = 'Ticket module voor activisme BE';
+        $data['relation']          = ['application', 'category', 'assignee', 'reactions.author'];
 
         // Query statements
-        $data['tickets']    = Ticket::where('status', 0)->with(['application', 'category', 'assignee'])->get();
+        $data['tickets']    = Ticket::where('status', 0)->with($data['relation'])->get();
         $data['users']      = Login::all();
         $data['categories'] = Category::all();
 
@@ -92,11 +93,12 @@ class Tickets extends MY_Controller
 
             redirect($_SERVER['HTTP_REFERER']);
         } else { // Validation passes
-            $input['assignee_id'] = empty($this->input->post('assignee_id')) ? 0 : $this->input->post('assignee_id');
-            $input['heading']     = $this->input->post('heading');
-            $input['description'] = $this->input->post('description');
-            $input['category_id'] = $this->input->post('category');
-            $input['status']      = 0;
+            $input['assignee_id']    = empty($this->input->post('assignee_id')) ? 0 : $this->input->post('assignee_id');
+            $input['application_id'] = empty($this->input->post('application_id')) ? 0 : $this->input->post('application_id');
+            $input['heading']        = $this->input->post('heading');
+            $input['description']    = $this->input->post('description');
+            $input['category_id']    = $this->input->post('category');
+            $input['status']         = 0;
 
             $insert = Ticket::create($input);
 
@@ -128,7 +130,9 @@ class Tickets extends MY_Controller
         $github = new \Github\Client();
         $github->authenticate($config['username'], $config['password'], $config['method']);
 
-        if ($github->api('issue')->create('Activisme-be', 'Server-tickets', ['title' => $ticket->heading, 'body' => $ticket->description])) {
+        $params = ['title' => $ticket->heading, 'body' => $ticket->description];
+
+        if ($github->api('issue')->create('Activisme-be', 'Server-tickets', $params)) {
             // Ticket created.
             $this->session->set_flashdata('class', 'Alert alert-success');
             $this->session->set_flashdata('message', 'Het ticket is naar github verplaatst.');
