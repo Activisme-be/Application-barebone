@@ -7,19 +7,22 @@
     <table class="table table-condensed table-hover">
         <thead>
             <tr>
-                <td>#</td>
-                <td></td> {{-- Reserved for functions --}}
+                <th>#</th>
+                <th>Titel:</th>
+                <th></th> {{-- Reserved for functions --}}
             </tr>
         </thead>
         <tbody>
             @foreach ($tickets as $ticket)
                 <tr>
-                    <td>#T{{ $ticket->id }}</td>
+                    <td><code>#T{{ $ticket->id }}</code></td>
+                    <td>{{ $ticket->heading }}</td>
 
                     {{-- Functions --}}
                         <td>
                             <a href="#" class="label label-info">Bekijken</a>
-                            <a href="#" class="label label-info">Sluiten</a>
+                            <a href="{{ base_url('tickets/destroy/' . $ticket->id) }}" class="label label-info">Sluiten</a>
+                            <a href="#" class="label label-info">Push github</a>
                         </td>
                     {{-- /Functions --}}
                 </tr>

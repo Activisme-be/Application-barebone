@@ -39,14 +39,14 @@ class Tickets extends CI_Controller
      */
     public function index()
     {
-        $data['title']              = 'tickets';
-        $data['page_title']         = 'Ticket Management';
-        $data['page_description']   = 'Ticket module voor activisme BE';
+        $data['title']             = 'tickets';
+        $data['page_title']        = 'Ticket Management';
+        $data['page_description']  = 'Ticket module voor activisme BE';
 
         // Query statements
-        $data['tickets']            = Ticket::where('status', 0)->get();
-        $data['users']              = Login::all();
-        $data['categories']         = Category::all();
+        $data['tickets']    = Ticket::where('status', 0)->get();
+        $data['users']      = Login::all();
+        $data['categories'] = Category::all();
 
         $this->blade->render('tickets/index', $data);
     }
@@ -65,7 +65,7 @@ class Tickets extends CI_Controller
 
         if ($this->form_validation->run() === false) { // Validation fails
             // var_dump(validation_errors()); // For debugging propose.
-            
+
             $this->session->set_flashdata('class', 'alert alert-danger');
             $this->session->set_flashdata('message', 'Wij konden de creatie van het ticket verwerken.');
 
@@ -113,11 +113,18 @@ class Tickets extends CI_Controller
     /**
      * Destroy a ticket in the system.
      *
-     * @see
-     * @return
+     * @see    GET|HEAD: http://domain.tld/tickets/destroy/{ticketId}
+     * @return redirect
      */
     public function destroy()
     {
-        //
+        $ticketId = $this->uri->segment(3);
+
+        if (Ticket::find($ticketId)->update(['status' => 1])) {
+            $this->session->set_flashdata('class', 'alert alert-success');
+            $this->session->set_flashdata('message', 'Het ticket is verwijderd.');
+        }
+
+        redirect($_SERVER['HTTP_REFERER']);
     }
 }
