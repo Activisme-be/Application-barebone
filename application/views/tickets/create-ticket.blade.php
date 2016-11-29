@@ -24,6 +24,21 @@
                         </div>
                     </div>
 
+                    {{-- Application form-group --}}
+                    <div class="form-group">
+                        <label class="control-label col-sm-3">Applicatie:</label>
+
+                        <div class="col-sm-9">
+                            <select class="form-control" name="application_id">
+                                <option value="">-- Selecteer application --</option>
+
+                                @foreach (Applications::all() as $app)
+                                    <option value="{{ $app->id}}">{{ $app->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+
                     {{-- Category form-group --}}
                     <div class="form-group">
                         <label class="control-label col-sm-3">
