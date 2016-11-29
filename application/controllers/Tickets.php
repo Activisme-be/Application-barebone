@@ -44,9 +44,12 @@ class Tickets extends CI_Controller
         $data['page_description']  = 'Ticket module voor activisme BE';
 
         // Query statements
-        $data['tickets']    = Ticket::where('status', 0)->get();
+        $data['tickets']    = Ticket::where('status', 0)->with(['application', 'category', 'assignee'])->get();
         $data['users']      = Login::all();
         $data['categories'] = Category::all();
+
+        // printf($data['tickets']);  // For debugging propose
+        // die();                     // For debugging propose
 
         $this->blade->render('tickets/index', $data);
     }

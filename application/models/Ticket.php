@@ -33,7 +33,7 @@ class Ticket extends Eloquent
      */
     public function assignee()
     {
-        return $this->belongsTo();
+        return $this->belongsTo("Login");
     }
 
     /**
@@ -43,7 +43,7 @@ class Ticket extends Eloquent
      */
     public function category()
     {
-        return $this->belongsTo();
+        return $this->belongsTo('Category');
     }
 
     /**
@@ -53,6 +53,6 @@ class Ticket extends Eloquent
      */
     public function application()
     {
-        return $this->belongsTo();
+        return $this->belongsTo('Applications');
     }
 }
