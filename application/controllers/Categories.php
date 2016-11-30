@@ -15,7 +15,7 @@ class Categories extends MY_Controller
      *
      * @var array -
      */
-    public function $User = [];
+    public $User = [];
 
     /**
      * Category constructor.
@@ -57,7 +57,8 @@ class Categories extends MY_Controller
      */
     public function insert()
     {
-        $this->form_validation->set_rules();
+        $this->form_validation->set_rules('name', 'Name', 'trim|required');
+        $this->form_validation->set_rules('description', 'Description', 'trim|required');
 
         if ($this->form_validation->run() === false) { // Validation fails
             // printf(validation_errors());     // For debugging propose
@@ -66,7 +67,11 @@ class Categories extends MY_Controller
             $class   = 'alert alert-danger';
             $message = 'uw invoer kon niet verwerkt worden.';
         } else { // Validation passes
-            if (Categories::create($input)) { // The category is inserted.
+            $input['user_id']     = $this->User['id'];
+            $input['name']        = $this->input->post('name');
+            $input['description'] = $this->input->post('description');
+
+            if (Category::create($input)) { // The category is inserted.
                 $class   = 'alert alert-success';
                 $message = 'De categoie is toegevoegd.';
             }
@@ -74,7 +79,7 @@ class Categories extends MY_Controller
 
         // Set flash messages
         $this->session->set_flashdata('class', $class);
-        $this->session->set_flashdata('message', $message)
+        $this->session->set_flashdata('message', $message);
 
         redirect($_SERVER['HTTP_REFERER']);
     }
@@ -90,7 +95,7 @@ class Categories extends MY_Controller
         $categoryId = $this->uri->segment(3);
 
         if (! empty($categoryId)) { // The category id isn't empty
-            $class   = 'alert alert-success',
+            $class   = 'alert alert-success';
             $message = 'De categorie is toegevoegd.';
 
             Category::destroy($categoryId);

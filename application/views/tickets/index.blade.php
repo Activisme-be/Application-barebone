@@ -39,7 +39,7 @@
 
                     {{-- Applications --}}
                     <div class="tab-pane" id="tab_2">
-                        blablabla
+                        @include('tickets/panes/categories')
                     </div>
                     {{-- /Applications --}}
 

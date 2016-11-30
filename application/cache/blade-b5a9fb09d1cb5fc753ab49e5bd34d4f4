@@ -1,10 +1,10 @@
-a:3:{s:4:"time";i:1480448788;s:3:"ttl";i:3600;s:4:"data";s:2014:"<div id="newApplication" class="modal fade" role="dialog">
+a:3:{s:4:"time";i:1480509863;s:3:"ttl";i:3600;s:4:"data";s:2029:"<div id="newApplication" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
     <?php //  Modal content ?>    <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modal Header</h4>
+        <h4 class="modal-title">Maak nieuwe applicatie aan.</h4>
       </div>
       <div class="modal-body">
         <form class="form-horizontal" action="<?php echo  base_url('app/insert') ; ?>" method="POST">

@@ -35,7 +35,7 @@ class Category extends Eloquent
      */
     public function creator()
     {
-        return $this->belongsTo('Login');
+        return $this->belongsTo('Login', 'user_id');
     }
 
     /**
