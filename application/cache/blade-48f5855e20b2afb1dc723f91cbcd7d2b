@@ -1,0 +1,41 @@
+a:3:{s:4:"time";i:1480449191;s:3:"ttl";i:3600;s:4:"data";s:1865:"<?php if ((int) count($apps->get()) === 0): ?>
+    <div class="col-sm-12">
+        <div class="alert alert-danger">
+            <strong><span class="fa fa-info-sign"></span> Info:</strong> Er zijn geen applicaties gevonden in het systeem.
+        </div>
+    </div>
+<?php else: ?>
+    <table class="table table-condensed table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Aangemaakt door:</th>
+                <th>Tickets:</th>
+                <th>Web url:</th>
+                <th>GitHub url:</th>
+                <th></th> <?php //  Reserved for functions  ?>            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($apps->get() as $app): ?>
+                <tr>
+                    <td><code>#A<?php echo  $app->id; ?></code></td>
+                    <td><?php echo  $app->creator->name ; ?></td>
+
+                    <td> <?php //  Tickets  ?>                        <span class="label label-danger" style="margin-right: 5px;">
+                            <?php echo  Ticket::where('application_id', $app->id)->where('status', 0)->count() ; ?> Open
+                        </span>
+
+                        <span class="label label-success">
+                            <?php echo  Ticket::where('application_id', $app->id)->where('status', 1)->count() ; ?> Gesloten
+                        </span>
+                    </td> <?php //  /Tickets  ?>
+                    <td><?php echo  $app->server_url ; ?></td>
+                    <td><?php echo  $app->git_url ; ?></td>
+
+                    <td> <?php //  Functions  ?>                        <a href="<?php echo  base_url('app/destroy/' . $app->id) ; ?>" class="label label-danger">Verwijder</a>
+                    </td> <?php //  /Functions  ?>                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+<?php endif; ?>
+";}

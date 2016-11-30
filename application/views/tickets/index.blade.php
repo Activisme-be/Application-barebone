@@ -39,13 +39,13 @@
 
                     {{-- Applications --}}
                     <div class="tab-pane" id="tab_2">
-                        The European languages are members of the same family. Their separate existence is a myth.
+                        blablabla
                     </div>
                     {{-- /Applications --}}
 
                     {{-- Category --}}
                     <div class="tab-pane" id="tab_3">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        @include('tickets/panes/application')
                     </div>
                     {{-- /Category --}}
                 </div>

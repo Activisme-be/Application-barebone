@@ -28,7 +28,7 @@ class Users extends MY_Controller
         $this->load->library(['email', 'blade', 'session', 'form_validation']);
         $this->load->helper(['url', 'string']);
 
-        $this->User = $this->session->userdata('logged_id');
+        $this->User = $this->session->userdata('logged_in');
     }
 
     /**

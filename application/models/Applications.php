@@ -27,4 +27,24 @@ class Applications extends Eloquent
      * @var bool
      */
     public $timestamps = false;
+
+    /**
+     * Author relation for the applications.
+     *
+     * @return array|collection
+     */
+    public function creator()
+    {
+        return $this->belongsTo('Login', 'user_id');
+    }
+
+    /**
+     * Ticket -> relation relationship.
+     *
+     * @return array|collection
+     */
+    public function tickets()
+    {
+        return $this->belongsTo('Ticket');
+    }
 }

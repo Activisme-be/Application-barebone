@@ -29,7 +29,7 @@ class Category extends Eloquent
     public $timestamps = false;
 
     /**
-     *  Creator relationship
+     * Creator relationship
      *
      * @return one-to-one relationship.
      */
@@ -37,4 +37,14 @@ class Category extends Eloquent
     {
         return $this->belongsTo('Login');
     }
+
+    /**
+     * Catgeory relationship.
+     *
+     * @return arry|collection
+     */
+     public function tickets()
+     {
+         return $this->belongsTo('Ticket');
+     }
 }

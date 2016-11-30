@@ -8,7 +8,7 @@
         <h4 class="modal-title">Modal Header</h4>
       </div>
       <div class="modal-body">
-        <form class="form-horizontal" action="" method="POST">
+        <form class="form-horizontal" action="{{ base_url('app/insert') }}" method="POST">
             {{-- name form-group --}}
             <div class="form-group">
                 <label class="control-label col-sm-3">
@@ -16,6 +16,17 @@
                 </label>
                 <div class="col-sm-9">
                     <input type="text" class="form-control" name="name" placeholder="Applicatie naam">
+                </div>
+            </div>
+
+            {{-- Server url form-group --}}
+            <div class="form-group">
+                <label class="col-sm-3 control-label">
+                    Hyperlink: <span class="text-danger">*</span>
+                </label>
+
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" name="server_url" placeholder="Server url">
                 </div>
             </div>
 
@@ -28,20 +39,8 @@
                 </div>
             </div>
 
-            {{-- Server url form-group --}}
-            <div class="form-group">
-                <label class="col-sm-3 control-label">
-                    Hyperlink: <span class="text-danger">*</span>
-                </label>
-
-                <div class="col-sm-9">
-                    <input type="text" class="form-control" name="server_url" placeholder="server_url">
-                </div>
-            </div>
-
             {{-- Submit button and reset button not needed --}}
             {{-- They are located in the modal bottom --}}
-        </form>
       </div>
       <div class="modal-footer">
           <button type="submit" class="btn btn-success">Aanmaken</button>

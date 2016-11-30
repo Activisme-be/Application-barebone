@@ -64,6 +64,7 @@ class Tickets extends MY_Controller
 
         // Query statements
         $data['tickets']    = Ticket::where('status', 0)->with($data['relation'])->get();
+        $data['apps']       = Applications::with(['creator', 'tickets']);
         $data['users']      = Login::all();
         $data['categories'] = Category::all();
 
