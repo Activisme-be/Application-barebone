@@ -1,0 +1,25 @@
+a:3:{s:4:"time";i:1480508517;s:3:"ttl";i:3600;s:4:"data";s:1397:"<?php //  Main Header  ?><header class="main-header">
+
+    <?php //  Logo  ?>    <a href="<?php echo  base_url() ; ?>" class="logo"><b>Activisme</b>BE</a>
+
+    <?php //  Header Navbar  ?>    <nav class="navbar navbar-static-top" role="navigation">
+        <?php //  Sidebar toggle button ?>        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <span class="sr-only">Toggle navigation</span>
+        </a>
+
+        <?php //  Navbar Right Menu  ?>        <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+                <?php //  User Account Menu  ?>                <li class="user user-menu">
+                    <?php //  Menu Toggle Button  ?>                    <a href="#">
+                        <?php //  The user image in the navbar  ?>                        <img src="<?php echo  base_url("assets/img/user2-160x160.jpg") ; ?>" class="user-image" alt="User Image"/>
+                        <?php //  hidden-xs hides the username on small devices so only the image appears.  ?>                        <span class="hidden-xs"><?php echo  $this->User['name'] ; ?></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo  base_url('users/logout') ; ?>"><span class="fa fa-sign-out"></span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+";}

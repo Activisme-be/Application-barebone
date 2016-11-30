@@ -1,0 +1,107 @@
+a:3:{s:4:"time";i:1480433850;s:3:"ttl";i:3600;s:4:"data";s:6187:"
+
+<?php $this->_section_start('breadcrumb'); ?>
+    <ol class="breadcrumb">
+        <li><a href="<?php echo  base_url() ; ?>"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="<?php echo  base_url('tickets') ; ?>">Tickets</a></li>
+        <li class="active">Ticket #<?php echo  $ticket->id ; ?></li>
+    </ol>
+<?php $this->_section_end(); ?>
+
+<?php $this->_section_start('content'); ?>
+    <div class='row'>
+        <div class='col-md-9'>
+            <?php //  Box  ?>            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title"><?php echo  $ticket->heading; ?></h3>
+
+                    <div class="box-tools pull-right">
+                        <a href="<?php echo  base_url('tickets/destroy/' . $ticket->id) ; ?>" class="btn btn-box-tool"><i class="fa fa-close"></i></a>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <?php echo  $ticket->description ; ?>
+                </div><?php //  /.box-body  ?>
+
+                <div class="box-footer box-comments"> <?php //  Comment module  ?>                    <?php if ((int) count($ticket->reactions) === 0): ?>
+                        <div class="box-comment">  <?php //  Box comment  ?>                            <?php //  User image  ?>                            <img class="img-circle img-sm" src="<?php echo  base_url("assets/img/user2-160x160.jpg") ; ?>" alt="User Image">
+
+                            <div class="comment-text">
+                                <span class="username">
+                                    Server
+                                </span><?php //  /.username  ?>
+                                Er zijn nog geen reacties op dit ticket.
+                            </div>
+                            <?php //  /.comment-text  ?>                        </div> <?php //  Box comment  ?>                    <?php else: ?>
+                        <?php foreach ($ticket->reactions as $comment): ?>
+                            <div class="box-comment">  <?php //  Box comment  ?>                                <?php //  User image  ?>                                <img class="img-circle img-sm" src="<?php echo  base_url("assets/img/user2-160x160.jpg") ; ?>" alt="User Image">
+
+                                <div class="comment-text">
+                                    <span class="username">
+                                        <?php echo  $comment->author->name ; ?>
+                                        <span class="text-muted pull-right">
+                                            <?php if ($comment->author->id === $this->User['id']): ?>
+                                                <a href="" class="label label-warning">Wijzig</a>
+                                            <?php endif; ?>
+                                            <a href="<?php echo  base_url('comment/destroy/' . $ticket->id . '/' . $comment->id) ; ?>" class="label label-danger">Verwijder</a>
+                                        </span>
+                                    </span><?php //  /.username  ?>
+                                    <?php echo  $comment->comment ; ?>
+                                </div>
+                                <?php //  /.comment-text  ?>                            </div> <?php //  Box comment  ?>                        <?php endforeach; ?>
+                    <?php endif; ?>
+                </div> <?php //  /comment modules  ?>
+                <div class="box-footer">
+                    <form id="input-enter" action="<?php echo  base_url('comment/insert/'. $ticket->id) ; ?>" method="post">
+                        <img class="img-responsive img-circle img-sm" src="<?php echo  base_url("assets/img/user2-160x160.jpg") ; ?>" alt="Alt Text">
+                        <?php //  .img-push is used to add margin to elements next to floating images  ?>                        <div class="img-push">
+                            <input type="text" name="comment" class="form-control input-sm" placeholder="Druk enter om te reageren.">
+                        </div>
+                    </form>
+                </div> <?php //  /comment module  ?>
+            </div><?php //  /.box  ?>        </div><?php //  /.col  ?>
+        <div class='col-md-3'>
+            <ul class="list-group">
+                <li class="list-group-item text-muted">
+                    <b>Informatie</b>
+                </li>
+                <li class="list-group-item">
+                    <b>Toegewezen aan:</b>
+                    <span class="pull-right"><?php echo  $ticket->assignee->name ; ?></span>
+                </li>
+                <li class="list-group-item">
+                    <b>Status:</b>
+                    <span class="pull-right">
+                        <span class="label label-info">
+                            <?php if ($ticket->status == 1): ?>
+                                Gesloten
+                            <?php elseif ($ticket->status == 0): ?>
+                                Open
+                            <?php endif; ?>
+                        </span>
+                    </span>
+                </li>
+                <li class="list-group-item">
+                    <b>Applicatie:</b>
+                    <span class="pull-right">
+                        <span class="label label-danger">
+                            <?php echo  $ticket->application->name ; ?>
+                        </span>
+                    </span>
+                </li>
+                <li class="list-group-item">
+                    <b>Categorie:</b>
+
+                    <span class="pull-right">
+                        <span class="label label-success">
+                            <?php echo  $ticket->category->name ; ?>
+                        </span>
+                    </span>
+                </li>
+            </ul>
+
+            <a href="<?php echo  base_url('tickets/github/' . $ticket->id) ; ?>" class="btn btn-primary btn-block"><b>Push github</b></a>
+        </div><?php //  /.col  ?>    </div><?php //  /.row  ?><?php $this->_section_end(); ?>
+
+<?php echo $this->_include('layouts/application'); ?>
+";}

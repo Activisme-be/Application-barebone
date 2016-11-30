@@ -1,0 +1,21 @@
+a:3:{s:4:"time";i:1480355096;s:3:"ttl";i:3600;s:4:"data";s:1191:"<div id="newTicket" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <?php //  Modal content ?>        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Ticket creatie</h4>
+            </div>
+            <div class="modal-body">
+                <form method="POST" action="<?php echo  base_url('tickets/insert') ; ?>" class="form-horizontal">
+                    <?php //  Assignee form-group  ?>                    <?php //  Heading form-group  ?>                    <?php //  Category form-group  ?>                    <?php //  Description form-group  ?>
+                    <?php //  Submit button and reset button not needed  ?>                    <?php //  They are located in the modal bottom  ?>            </div>
+            <div class="modal-footer">
+                    <button type="submit" class="btn btn-success">Aanmaken</button>
+                </form>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+";}

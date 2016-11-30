@@ -1,0 +1,74 @@
+a:3:{s:4:"time";i:1480448441;s:3:"ttl";i:3600;s:4:"data";s:4582:"
+
+<?php $this->_section_start('breadcrumb'); ?>
+    <ol class="breadcrumb">
+        <li><a href="<?php echo  base_url() ; ?>"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Gebruikersbeheer</li>
+    </ol>
+<?php $this->_section_end(); ?>
+
+<?php $this->_section_start('content'); ?>
+    <div class='row'>
+        <div class='col-md-12'>
+            <!-- Box -->
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Login beheer</h3>
+
+                    <div class="box-tools pull-right">
+                        <button data-toggle="modal" data-target="#newUser" class="btn btn-box-tool"><i class="fa fa-plus"></i></button>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <?php if (count($users) == 0): ?> <?php //  Show info alert  ?>                        <div class="alert alert-info">
+                            <strong><span class="fa fa-info-circle"></span> Info:</strong>
+                            Er zijn geen gebruikers gevonden in het systeem gevonden.
+                        </div>
+                    <?php else: ?> <?php //  Show users overview  ?>                        <table class="table table-condensed table-hover">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Status:</th>
+                                    <th>Username:</th>
+                                    <th>Naam:</th>
+                                    <th>Email:</th>
+                                    <th></th> <?php //  Reserved for functions  ?>                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($users as $user): ?>
+                                    <tr>
+                                        <td><code>#U<?php echo  $user->id ; ?></code></td>
+                                        <td>
+                                            <?php if ($user->blocked == 0): ?>
+                                                <span class="label label-success">Actief</span>
+                                            <?php elseif($user->blocked == 1): ?>
+                                                <span class="label label-danger">Geblokkeerd</span>
+                                            <?php else: ?>
+                                                <span class="label label-info">Onbekend</span>
+                                            <?php endif; ?>
+                                        </td>
+                                        <td><?php echo  $user->username ; ?></td>
+                                        <td><?php echo  $user->name ; ?></td>
+                                        <td><?php echo  $user->email ; ?></td>
+
+                                        <?php //  Functions  ?>                                            <td>
+                                                <a href="<?php echo  base_url('users/reset/' . $user->id) ; ?>" class="label label-default">Reset wachtwoord</a>
+                                                <a href="<?php echo  base_url('users/destroy/' . $user->id) ; ?>" class="label label-danger">Verwijder</a>
+
+                                                <?php if ($user->blocked == 0): ?>
+                                                    <a href="<?php echo  base_url('users/status/'. $user->id .'/1') ; ?>" class="label label-warning">Blokkeer</a>
+                                                <?php elseif ($user->blocked == 1): ?>
+                                                    <a href="<?php echo  base_url('users/status/'. $user->id .'/0') ; ?>" class="label label-warning">Activeren</a>
+                                                <?php endif; ?>
+                                            </td>
+                                        <?php //  /Functions  ?>                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    <?php endif; ?>
+                </div><?php //  /.box-body  ?>            </div><?php //  /.box  ?>        </div><?php //  /.col  ?>    </div><?php //  /.row  ?>
+    <?php //  Includes  ?>        <?php echo $this->_include('users/create'); ?>
+    <?php //  /Includes  ?><?php $this->_section_end(); ?>
+
+<?php echo $this->_include('layouts/application'); ?>
+";}

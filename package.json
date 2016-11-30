@@ -1,0 +1,19 @@
+{
+  "name": "application-barebone",
+  "version": "1.0.0",
+  "description": "De template voor een systeem dat van nul word ontwikkeld.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Activisme-be/Application-barebone.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Activisme-be/Application-barebone/issues"
+  },
+  "homepage": "https://github.com/Activisme-be/Application-barebone#readme"
+}
