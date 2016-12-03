@@ -46,6 +46,16 @@
                         {{-- Profile update form --}}
                             <form class="form-horizontal" action="" method="post">
 
+                                {{-- Username form-group --}}
+                                <div class="form-group">
+                                    <label for="username" class="control-label col-sm-1">
+                                        Gebruikersnaam: <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-sm-4">
+                                      <input type="text" name="username" value="{{ $user->username }}" placeholder="De gebruikersnaame">
+                                    </div>
+                                </div>
+
                             </form>
                         {{-- /Profile update form --}}
                   </div>

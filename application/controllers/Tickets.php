@@ -150,6 +150,11 @@ class Tickets extends MY_Controller
      */
     public function show()
     {
+        // BUG: When a category is deleted. The application try to find the data.
+        //      And throws an error.
+        // BUG: When a application is deleted. The application try to find the data.
+        //      And throws an error.
+
         $ticketId = $this->uri->segment(3);
 
         $data['ticket']             = Ticket::with(['application', 'category', 'assignee'])->find($ticketId);
@@ -158,7 +163,7 @@ class Tickets extends MY_Controller
 
         // printf($data['ticket']);  // For debugging propose.
         // die();                    // For debugging propose.
-
+        
         $this->blade->render('tickets/show', $data);
     }
 
@@ -170,6 +175,8 @@ class Tickets extends MY_Controller
      */
     public function destroy()
     {
+        // FIXME: rename destroy function to close.
+
         $ticketId = $this->uri->segment(3);
 
         if (Ticket::find($ticketId)->update(['status' => 1])) {
