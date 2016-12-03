@@ -52,9 +52,28 @@
                                         Gebruikersnaam: <span class="text-danger">*</span>
                                     </label>
                                     <div class="col-sm-4">
-                                      <input type="text" name="username" value="{{ $user->username }}" placeholder="De gebruikersnaame">
+                                        <input type="text" name="username" value="{{ $user->username }}" placeholder="De gebruikersnaame">
                                     </div>
                                 </div>
+
+                                {{-- Name form-group --}}
+                                <div class="form-group">
+                                    <label for="name" class="control-label col-sm-1">
+                                        Naam: <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-sm-4">
+                                        <input type="text" name="name" value="{{ $user->name }}" placeholder="Naam">
+                                    </div>
+                                </div>
+
+                                {{-- Email form-group --}}
+                                <div class="form-group">
+
+                                </div>
+
+                                {{-- Password form-group --}}
+
+                                {{-- Submit and reset form-group --}}
 
                             </form>
                         {{-- /Profile update form --}}
