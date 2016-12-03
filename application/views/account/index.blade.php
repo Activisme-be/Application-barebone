@@ -44,36 +44,56 @@
                 <div class="tab-content">
                     <div class="tab-pane active" id="tab_1">
                         {{-- Profile update form --}}
-                            <form class="form-horizontal" action="" method="post">
+                            <form class="form-horizontal" action="{{ base_url('account/update') }}" method="post">
 
                                 {{-- Username form-group --}}
                                 <div class="form-group">
-                                    <label for="username" class="control-label col-sm-1">
+                                    <label for="username" class="control-label col-sm-2">
                                         Gebruikersnaam: <span class="text-danger">*</span>
                                     </label>
                                     <div class="col-sm-4">
-                                        <input type="text" name="username" value="{{ $user->username }}" placeholder="De gebruikersnaame">
+                                        <input type="text" name="username" class="form-control" value="{{ $user->username }}" placeholder="De gebruikersnaame">
                                     </div>
                                 </div>
 
                                 {{-- Name form-group --}}
                                 <div class="form-group">
-                                    <label for="name" class="control-label col-sm-1">
+                                    <label for="name" class="control-label col-sm-2">
                                         Naam: <span class="text-danger">*</span>
                                     </label>
                                     <div class="col-sm-4">
-                                        <input type="text" name="name" value="{{ $user->name }}" placeholder="Naam">
+                                        <input type="text" class="form-control" name="name" value="{{ $user->name }}" placeholder="Naam">
                                     </div>
                                 </div>
 
                                 {{-- Email form-group --}}
                                 <div class="form-group">
-
+                                    <label class="control-label col-sm-2" for="email">
+                                        E-mail adres: <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-sm-4">
+                                        <input class="form-control" name="email" value="{{ $user->email }}" placeholder="email adres">
+                                    </div>
                                 </div>
 
                                 {{-- Password form-group --}}
+                                <div class="form-group">
+                                    <label for="password" class="col-sm-2 control-label">
+                                        Wachtwoord: <span class="text-danger">*</span>
+                                    </label>
+
+                                    <div class="col-sm-4">
+                                        <input type="password" class="form-control" name="password" placeholder="Wachtwoord">
+                                    </div>
+                                </div>
 
                                 {{-- Submit and reset form-group --}}
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-4">
+                                        <button type="submit" class="btn btn-success">Aanpassen</button>
+                                        <button type="reset" class="btn btn-danger">Reset</button>
+                                    </div>
+                                </div>
 
                             </form>
                         {{-- /Profile update form --}}

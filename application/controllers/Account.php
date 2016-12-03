@@ -8,7 +8,7 @@
  * @since     2016
  * @package   Activisme-BE resources
  */
- class Account extends CI_Controller
+ class Account extends MY_Controller
  {
      /**
       * Authencated user session.
@@ -50,7 +50,7 @@
      /**
       * Gee the Users profile.
       *
-      * @see    GET|HEAD: http://www.doamin.tld/account
+      * @see    GET|HEAD: http://www.domian.tld/account
       * @return blade view.
       */
      public function index()

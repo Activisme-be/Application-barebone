@@ -1,4 +1,4 @@
-a:3:{s:4:"time";i:1480735301;s:3:"ttl";i:3600;s:4:"data";s:287:"<footer class="main-footer">
+a:3:{s:4:"time";i:1480752173;s:3:"ttl";i:3600;s:4:"data";s:287:"<footer class="main-footer">
     <?php //  To the right  ?>    <div class="pull-right hidden-xs"><strong>Version:</strong> 1.0.0-rc1</div>
     <?php //  Default to the left  ?>    <strong>Copyright © <?php echo  date('Y') ; ?> Tim Joosten.</strong> Alle rechten voorbehouden.
 </footer>
