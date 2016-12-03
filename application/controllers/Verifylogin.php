@@ -44,7 +44,7 @@ class Verifylogin extends MY_Controller
             $this->blade->render('home', $data);
         } else {
             // Validation passes
-            redirect($_SERVER['HTTP_REFERER']);
+            redirect(base_url('/tickets'));
         }
     }
 

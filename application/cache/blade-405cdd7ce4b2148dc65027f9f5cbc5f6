@@ -1,0 +1,100 @@
+a:3:{s:4:"time";i:1480752830;s:3:"ttl";i:3600;s:4:"data";s:5701:"
+
+<?php $this->_section_start('breadcrumb'); ?>
+    <ol class="breadcrumb">
+        <li><a href="<?php echo  base_url() ; ?>"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Profiel</li>
+    </ol>
+<?php $this->_section_end(); ?>
+
+<?php $this->_section_start('content'); ?>
+    <div class='row'>
+        <div class="col-sm-3">
+                <div class="box box-primary">
+                    <div class="box-body box-profile">
+                          <img class="profile-user-img img-responsive img-circle" src="<?php echo  base_url('assets/img/user2-160x160.jpg') ; ?>" alt="User profile picture">
+                          <h3 class="profile-username text-center"><?php echo  $user->email ; ?></h3>
+
+                          <ul class="list-group list-group-unbordered">
+                              <li class="list-group-item">
+                                  <strong>Gebruikersnaam:</strong>
+                                  <span class="pull-right"><?php echo  $user->username ; ?></span>
+                              </li>
+                              <li class="list-group-item">
+                                  <strong>Naam:</strong>
+                                  <span class="pull-right"><?php echo  $user->name ; ?></span>
+                              </li>
+                              <li class="list-group-item">
+                                  <strong>Email:</strong>
+                                  <span class="pull-right"><?php echo  $user->email ; ?></span>
+                              </li>
+                          </ul>
+
+                          <a href="mailto:<?php echo  $user->name ; ?>" class="btn btn-primary btn-block"><b>E-mail</b></a>
+                    </div>
+                    <?php //  /.box-body  ?>            </div>
+        </div>
+
+        <div class="col-sm-9">
+            <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#tab_1" data-toggle="tab">Account configuratie</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab_1">
+                        <?php //  Profile update form  ?>                            <form class="form-horizontal" action="" method="post">
+
+                                <?php //  Username form-group  ?>                                <div class="form-group">
+                                    <label for="username" class="control-label col-sm-2">
+                                        Gebruikersnaam: <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-sm-4">
+                                        <input type="text" name="username" class="form-control" value="<?php echo  $user->username ; ?>" placeholder="De gebruikersnaame">
+                                    </div>
+                                </div>
+
+                                <?php //  Name form-group  ?>                                <div class="form-group">
+                                    <label for="name" class="control-label col-sm-2">
+                                        Naam: <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="name" value="<?php echo  $user->name ; ?>" placeholder="Naam">
+                                    </div>
+                                </div>
+
+                                <?php //  Email form-group  ?>                                <div class="form-group">
+                                    <label class="control-label col-sm-2" for="email">
+                                        E-mail adres: <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-sm-4">
+                                        <input class="form-control" name="email" value="<?php echo  $user->email ; ?>" placeholder="email adres">
+                                    </div>
+                                </div>
+
+                                <?php //  Password form-group  ?>                                <div class="form-group">
+                                    <label for="password" class="col-sm-2 control-label">
+                                        Wachtwoord: <span class="text-danger">*</span>
+                                    </label>
+
+                                    <div class="col-sm-4">
+                                        <input type="password" class="form-control" name="password" placeholder="Wachtwoord">
+                                    </div>
+                                </div>
+
+                                <?php //  Submit and reset form-group  ?>                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-4">
+                                        <button type="submit" class="btn btn-success">Aanpassen</button>
+                                        <button type="reset" class="btn btn-danger">Reset</button>
+                                    </div>
+                                </div>
+
+                            </form>
+                        <?php //  /Profile update form  ?>                  </div>
+              </div>
+        </div>
+    </div><?php //  /.row  ?>
+    <?php //  Includes  ?>        <?php echo $this->_include('users/create'); ?>
+    <?php //  /Includes  ?><?php $this->_section_end(); ?>
+
+<?php echo $this->_include('layouts/application'); ?>
+";}

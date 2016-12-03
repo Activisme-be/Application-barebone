@@ -37,6 +37,7 @@ class LoggedInMiddleware
 
         if (! $this->ci->session->userdata('logged_in')) // The user is logged in.
         {
+						// User is not authencated. Redirect him to the front page off the application.
             redirect(base_url());
         }
     }

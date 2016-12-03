@@ -57,6 +57,8 @@ class Comment extends MY_Controller
      */
     public function insert()
     {
+        // FIXME: Set flash data to variables. and set the flash data out off the if/else structures.
+        
         $this->form_validation->set_rules('comment', 'Comment', 'trim|required');
 
         if ($this->form_validation->run() === false) { // Validation fails
@@ -86,6 +88,8 @@ class Comment extends MY_Controller
      */
     public function edit()
     {
+        // FIXME: Set flash data to variables. and set the flash data out off the if/else structures.
+
         $this->form_validation->set_rules('comment', 'Comment', 'trim|required');
 
         if ($this->form_validation->run() === false) { // Validation fails
@@ -119,6 +123,8 @@ class Comment extends MY_Controller
      */
     public function destroy()
     {
+        // FIXME: Set flash data to variables. and set the flash data out off the if/else structures.
+
         $ticketId  = $this->uri->segment(3);
         $commentId = $this->uri->segment(4);
 
