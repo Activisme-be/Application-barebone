@@ -158,13 +158,13 @@ class ComposerStaticInit5bb924f08583b5c21de5176e78da190b
     );
 
     public static $classMap = array (
-        'Applications' => __DIR__ . '/../..' . '/../../tom-manheaghe/application-barebone/application/models/Applications.php',
-        'Blade' => __DIR__ . '/../..' . '/../../tom-manheaghe/application-barebone/application/libraries/Blade.php',
-        'Category' => __DIR__ . '/../..' . '/../../tom-manheaghe/application-barebone/application/models/Category.php',
-        'Login' => __DIR__ . '/../..' . '/../../tom-manheaghe/application-barebone/application/models/Login.php',
-        'MY_Controller' => __DIR__ . '/../..' . '/../../tom-manheaghe/application-barebone/application/core/MY_Controller.php',
-        'Reactions' => __DIR__ . '/../..' . '/../../tom-manheaghe/application-barebone/application/models/Reactions.php',
-        'Ticket' => __DIR__ . '/../..' . '/../../tom-manheaghe/application-barebone/application/models/Ticket.php',
+        'Applications' => __DIR__ . '/../..' . '/../../../clients/tom-manheaghe/commander-platform/application/models/Applications.php',
+        'Blade' => __DIR__ . '/../..' . '/../../../clients/tom-manheaghe/commander-platform/application/libraries/Blade.php',
+        'Category' => __DIR__ . '/../..' . '/../../../clients/tom-manheaghe/commander-platform/application/models/Category.php',
+        'Login' => __DIR__ . '/../..' . '/../../../clients/tom-manheaghe/commander-platform/application/models/Login.php',
+        'MY_Controller' => __DIR__ . '/../..' . '/../../../clients/tom-manheaghe/commander-platform/application/core/MY_Controller.php',
+        'Reactions' => __DIR__ . '/../..' . '/../../../clients/tom-manheaghe/commander-platform/application/models/Reactions.php',
+        'Ticket' => __DIR__ . '/../..' . '/../../../clients/tom-manheaghe/commander-platform/application/models/Ticket.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

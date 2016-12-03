@@ -1,0 +1,53 @@
+a:3:{s:4:"time";i:1480736625;s:3:"ttl";i:3600;s:4:"data";s:2566:"
+
+<?php $this->_section_start('breadcrumb'); ?>
+    <ol class="breadcrumb">
+        <li><a href="<?php echo  base_url() ; ?>"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Profiel</li>
+    </ol>
+<?php $this->_section_end(); ?>
+
+<?php $this->_section_start('content'); ?>
+    <div class='row'>
+        <div class="col-sm-3">
+                <div class="box box-primary">
+                    <div class="box-body box-profile">
+                          <img class="profile-user-img img-responsive img-circle" src="<?php echo  base_url('assets/img/user2-160x160.jpg') ; ?>" alt="User profile picture">
+                          <h3 class="profile-username text-center"><?php echo  $user->email ; ?></h3>
+
+                          <ul class="list-group list-group-unbordered">
+                              <li class="list-group-item">
+                                  <strong>Gebruikersnaam:</strong>
+                                  <span class="pull-right"><?php echo  $user->username ; ?></span>
+                              </li>
+                              <li class="list-group-item">
+                                  <strong>Naam:</strong>
+                                  <span class="pull-right"><?php echo  $user->name ; ?></span>
+                              </li>
+                              <li class="list-group-item">
+                                  <strong>Email:</strong>
+                                  <span class="pull-right"><?php echo  $user->email ; ?></span>
+                              </li>
+                          </ul>
+
+                          <a href="mailto:<?php echo  $user->name ; ?>" class="btn btn-primary btn-block"><b>E-mail</b></a>
+                    </div>
+                    <?php //  /.box-body  ?>            </div>
+        </div>
+
+        <div class="col-sm-9">
+            <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#tab_1" data-toggle="tab">Account configuratie</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab_1">
+                        <?php //  Profile update form  ?>                        <?php //  /Profile update form  ?>                  </div>
+              </div>
+        </div>
+    </div><?php //  /.row  ?>
+    <?php //  Includes  ?>        <?php echo $this->_include('users/create'); ?>
+    <?php //  /Includes  ?><?php $this->_section_end(); ?>
+
+<?php echo $this->_include('layouts/application'); ?>
+";}

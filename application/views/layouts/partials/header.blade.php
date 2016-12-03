@@ -17,7 +17,7 @@
                 {{-- User Account Menu --}}
                 <li class="user user-menu">
                     {{-- Menu Toggle Button --}}
-                    <a href="#">
+                    <a href="{{ base_url('account') }}">
                         {{-- The user image in the navbar --}}
                         <img src="{{ base_url("assets/img/user2-160x160.jpg") }}" class="user-image" alt="User Image"/>
                         {{-- hidden-xs hides the username on small devices so only the image appears. --}}

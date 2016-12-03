@@ -26,7 +26,7 @@
          $this->load->library(['blade', 'session', 'form_validation']);
          $this->load->helper(['url']);
 
-         $his->User = $this->session->userdata('logged_in');
+         $this->User = $this->session->userdata('logged_in');
      }
 
      /**
@@ -50,13 +50,15 @@
      /**
       * Gee the Users profile.
       *
-      * @see
-      * @return
+      * @see    GET|HEAD: http://www.doamin.tld/account
+      * @return blade view.
       */
      public function index()
      {
-         $data['title'] = 'Profiel';
-         $data['user']  = Login::find($this->User['id']);
+         $data['title']            = 'Profiel';
+         $data['page_title']       = 'Profiel';
+         $data['page_description'] = '';
+         $data['user']             = Login::find($this->User['id']);
 
          $this->blade->render('account/index', $data);
      }
@@ -64,10 +66,10 @@
      /**
       * Update a account.
       *
-      * @see
-      * @return
+      * @see    PATCH|UPDATE: http://www.domain.tld/account/update
+      * @return redirect
       */
-     public function insert()
+     public function update()
      {
         $this->form_validation->set_rules('name', 'Name', 'trim|required');
         $this->form_validation->set_rules('username', 'Username', 'trim|required');

@@ -6,11 +6,11 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Applications' => $baseDir . '/../../tom-manheaghe/application-barebone/application/models/Applications.php',
-    'Blade' => $baseDir . '/../../tom-manheaghe/application-barebone/application/libraries/Blade.php',
-    'Category' => $baseDir . '/../../tom-manheaghe/application-barebone/application/models/Category.php',
-    'Login' => $baseDir . '/../../tom-manheaghe/application-barebone/application/models/Login.php',
-    'MY_Controller' => $baseDir . '/../../tom-manheaghe/application-barebone/application/core/MY_Controller.php',
-    'Reactions' => $baseDir . '/../../tom-manheaghe/application-barebone/application/models/Reactions.php',
-    'Ticket' => $baseDir . '/../../tom-manheaghe/application-barebone/application/models/Ticket.php',
+    'Applications' => $baseDir . '/../../../clients/tom-manheaghe/commander-platform/application/models/Applications.php',
+    'Blade' => $baseDir . '/../../../clients/tom-manheaghe/commander-platform/application/libraries/Blade.php',
+    'Category' => $baseDir . '/../../../clients/tom-manheaghe/commander-platform/application/models/Category.php',
+    'Login' => $baseDir . '/../../../clients/tom-manheaghe/commander-platform/application/models/Login.php',
+    'MY_Controller' => $baseDir . '/../../../clients/tom-manheaghe/commander-platform/application/core/MY_Controller.php',
+    'Reactions' => $baseDir . '/../../../clients/tom-manheaghe/commander-platform/application/models/Reactions.php',
+    'Ticket' => $baseDir . '/../../../clients/tom-manheaghe/commander-platform/application/models/Ticket.php',
 );
