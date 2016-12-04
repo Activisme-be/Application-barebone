@@ -58,7 +58,7 @@ class Comment extends MY_Controller
     public function insert()
     {
         // FIXME: Set flash data to variables. and set the flash data out off the if/else structures.
-        
+
         $this->form_validation->set_rules('comment', 'Comment', 'trim|required');
 
         if ($this->form_validation->run() === false) { // Validation fails
@@ -88,29 +88,30 @@ class Comment extends MY_Controller
      */
     public function edit()
     {
-        // FIXME: Set flash data to variables. and set the flash data out off the if/else structures.
-
         $this->form_validation->set_rules('comment', 'Comment', 'trim|required');
 
         if ($this->form_validation->run() === false) { // Validation fails
-            $this->session->set_flashdata('class', 'alert alert-danger');
-            $this->session->set_flashdata('message', 'Wij konden de wijziging niet doorvoeren.');
+            $class   = 'alert alert-danger';
+            $message = 'Wij konden de wijziging niet doorvoeren.'
         } else { // Validation passes
             $commentId = $this->uri->segment(3);
             $comment   = Reactions::find($commentId);
 
             if ($comment->author_id !== $this->User['id']) { // The requester is not the author.
-                $this->session->set_flashdata('class', 'alert alert-danger');
-                $this->session->set_flashdata('message', 'U hebt geen rechten om deze handeling uit te voeren.');
+                $class   = 'alert alert-danger';
+                $message = 'U hebt geen rechten om deze handeling uit te voeren.';
 
                 $input['comment'] = $this->input->post('comment');
 
                 if (Reactions::find($commentId)->update($input)) { // The author has changed his comment.
-                    $this->session->set_flashdata('class', 'alert alert-success');
-                    $this->session->set_flashdata('message', 'Uw reactie is aangepast');
+                    $class   = 'alert alert-success';
+                    $message = 'Uw reactie is aangepast';
                 }
             }
         }
+
+        $this->session->set_flashdata('class', $class);
+        $this->session->set_flashdata('message', $message);
 
         redirect($_SERVER['HTTP_REFERER']);
     }
