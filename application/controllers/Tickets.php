@@ -26,7 +26,7 @@ class Tickets extends MY_Controller
     {
         parent::__construct();
         $this->load->helper(['url']);
-        $this->load->library(['session', 'form_validation', 'blade']);
+        $this->load->library(['session', 'slack', 'form_validation', 'blade']);
 
         $this->User = $this->session->userdata('logged_in');
     }
@@ -163,7 +163,7 @@ class Tickets extends MY_Controller
 
         // printf($data['ticket']);  // For debugging propose.
         // die();                    // For debugging propose.
-        
+
         $this->blade->render('tickets/show', $data);
     }
 
