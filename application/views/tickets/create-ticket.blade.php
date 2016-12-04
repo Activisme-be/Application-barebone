@@ -49,7 +49,7 @@
                             <select name="category" class="form-control">
                                 <option value="">-- Selecteer label --</option>
 
-                                @foreach ($categories as $category)
+                                @foreach ($categories->get() as $category)
                                     <option value="{{ $category->id}}">{{ $category->name}}</option>
                                 @endforeach
                             </select>
