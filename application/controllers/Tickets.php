@@ -90,7 +90,7 @@ class Tickets extends MY_Controller
             // var_dump(validation_errors());  // For debugging propose.
             // die();                          // For debugging propose.
 
-            $this->slack->send($this->User['name'] . 'heeft een ticket aangemaakt.'); 
+            $this->slack->send($this->User['name'] . ' heeft een ticket aangemaakt.');
 
             $this->session->set_flashdata('class', 'alert alert-danger');
             $this->session->set_flashdata('message', 'Wij konden de creatie van het ticket verwerken.');
@@ -137,7 +137,7 @@ class Tickets extends MY_Controller
         $params = ['title' => $ticket->heading, 'body' => $ticket->description];
 
         if ($github->api('issue')->create('Activisme-be', 'Server-tickets', $params)) {
-            $this->slack->send($this->User['name'] . 'Heeft een ticket doorgeduwd naar github.');
+            $this->slack->send($this->User['name'] . ' heeft een ticket doorgeduwd naar github.');
 
             // Ticket created.
             $this->session->set_flashdata('class', 'Alert alert-success');
@@ -185,7 +185,7 @@ class Tickets extends MY_Controller
         $ticketId = $this->uri->segment(3);
 
         if (Ticket::find($ticketId)->update(['status' => 1])) {
-            $this->slack->send($this->User['name'] . 'Heeft een ticket gesloten.');
+            $this->slack->send($this->User['name'] . ' heeft een ticket gesloten.');
 
             $this->session->set_flashdata('class', 'alert alert-success');
             $this->session->set_flashdata('message', 'Het ticket is verwijderd.');
