@@ -57,6 +57,9 @@ class Tickets extends MY_Controller
      */
     public function index()
     {
+        var_dump($this->User);
+        die();
+
         $data['title']             = 'tickets';
         $data['page_title']        = 'Ticket Management';
         $data['page_description']  = 'Ticket module voor activisme BE';

@@ -19,7 +19,7 @@ class Login extends Eloquent
      *
      * @var array
      */
-    protected $fillable = ['username', 'name', 'email', 'password', 'blocked'];
+    protected $fillable = ['username', 'name', 'email', 'password', 'blocked', 'permissions_id'];
 
     /**
      * Disable timestamps.
@@ -27,4 +27,14 @@ class Login extends Eloquent
      * @var bool
      */
     public $timestamps = false;
+
+    /**
+     * Permissions data relation for the user.
+     *
+     * @return array|collection
+     */
+    public function permissions()
+    {
+        return $this->belongsTo('Permissions', 'permissions_id');
+    }
 }

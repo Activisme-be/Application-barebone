@@ -63,6 +63,7 @@ class Verifylogin extends MY_Controller
 
         // AUthencation query
         $query = Login::where('email', $input['email'])
+            ->with('permissions')
             ->where('blocked', 0)
             ->where('password', md5($password))
             ->get();
@@ -74,6 +75,7 @@ class Verifylogin extends MY_Controller
                 $authencation['id']    = $user->id;
                 $authencation['name']  = $user->name;
                 $authencation['email'] = $user->email;
+                $authencation['role']  = $user->permissions->role;
             }
 
             $this->session->set_userdata('logged_in', $authencation);
