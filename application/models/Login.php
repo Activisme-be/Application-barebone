@@ -19,7 +19,7 @@ class Login extends Eloquent
      *
      * @var array
      */
-    protected $fillable = ['username', 'name', 'email', 'password', 'blocked', 'permissions_id'];
+    protected $fillable = ['username', 'name', 'email', 'password', 'blocked'];
 
     /**
      * Disable timestamps.
@@ -35,6 +35,6 @@ class Login extends Eloquent
      */
     public function permissions()
     {
-        return $this->belongsTo('Permissions', 'permissions_id');
+        return $this->belongsToMany('Permissions')->select('role');
     }
 }

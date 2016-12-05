@@ -70,12 +70,19 @@ class Verifylogin extends MY_Controller
 
         if (count($query) === 1) { // Result is found and now we can build up the session.
             $authencation = []; // Empty session array.
+            $permissions  = []; // Empty permission array.
 
+            // Build up the session token.
             foreach ($query as $user) { // Define the data to the session array.
-                $authencation['id']    = $user->id;
-                $authencation['name']  = $user->name;
-                $authencation['email'] = $user->email;
-                $authencation['role']  = $user->permissions->role;
+                // Build up the permission array
+                foreach ($user->permissions as $perm) { // Set every key to the array.
+                    array_push($permissions, $perm->role); // Push every key invidual to the permissions array.
+                }
+
+                $authencation['id']     = $user->id;
+                $authencation['name']   = $user->name;
+                $authencation['email']  = $user->email;
+                $authencation['roles']  = $permissions;
             }
 
             $this->session->set_userdata('logged_in', $authencation);
