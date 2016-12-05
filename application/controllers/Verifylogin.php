@@ -22,6 +22,7 @@ class Verifylogin extends MY_Controller
 
         $this->load->library(['session', 'blade', 'form_validation']);
         $this->load->helper(['string', 'url']);
+        $this->lang->load('auth');
     }
 
     /**
@@ -34,16 +35,13 @@ class Verifylogin extends MY_Controller
         $this->form_validation->set_rules('email', 'Email', 'trim|required');
         $this->form_validation->set_rules('password', 'Password', 'trim|required|callback_check_database');
 
-        if ($this->form_validation->run() === false) {
-            // Validation fails
-
+        if ($this->form_validation->run() === false) { // Validation fails
             // printf(validation_errors());    // For debugging propose
             // die();                          // For debugging propose
 
             $data['title'] = 'Index';
             $this->blade->render('home', $data);
-        } else {
-            // Validation passes
+        } else { // Validation passes
             redirect(base_url('/tickets'));
         }
     }
@@ -51,7 +49,6 @@ class Verifylogin extends MY_Controller
     /**
      * Run the login against the database.
      *
-     * @todo: build up the login model.
      * @todo: save the user data to a session that can be used accross platforms.
      *
      * @param  string $password
@@ -87,8 +84,8 @@ class Verifylogin extends MY_Controller
 
             $this->session->set_userdata('logged_in', $authencation);
             return true;
-        } else {
-            $this->form_validation->set_message('check_database', 'Wrong password or username.');
+        } else { // There are no user find with the given data.
+            $this->form_validation->set_message('check_database', $this->lang->line('wrong_crendetails'));
             return false;
         }
     }

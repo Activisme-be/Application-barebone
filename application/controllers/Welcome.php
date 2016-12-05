@@ -19,7 +19,8 @@ class Welcome extends MY_Controller
     {
         parent::__construct();
         $this->load->library(['blade', 'session']);
-        $this->load->helper(['url']);
+        $this->load->helper(['url', 'language']);
+        $this->lang->load('auth');
     }
 
     /**
@@ -29,7 +30,7 @@ class Welcome extends MY_Controller
      */
     public function index()
     {
-        $data['title'] = 'Login';
+        $data['title'] = lang('title_login');
         $this->blade->render('home', $data);
     }
 }

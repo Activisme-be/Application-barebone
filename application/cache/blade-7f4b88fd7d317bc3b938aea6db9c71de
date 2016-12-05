@@ -1,4 +1,4 @@
-a:3:{s:4:"time";i:1480929849;s:3:"ttl";i:3600;s:4:"data";s:2101:"<!DOCTYPE html>
+a:3:{s:4:"time";i:1480968300;s:3:"ttl";i:3600;s:4:"data";s:2199:"<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -25,13 +25,13 @@ a:3:{s:4:"time";i:1480929849;s:3:"ttl";i:3600;s:4:"data";s:2101:"<!DOCTYPE html>
      <body>
         <div class="container">
             <form class="form-signin" action="<?php echo  base_url('verifylogin') ; ?>" method="POST">
-                 <input type="email" name="email" class="form-control" placeholder="Email addres">
-                 <input type="password" name="password" class="form-control" placeholder="Password">
+                 <input type="email" name="email" class="form-control" placeholder="<?php echo  lang('placeholder_email') ; ?>">
+                 <input type="password" name="password" class="form-control" placeholder="<?php echo  lang('placeholder_password') ; ?>">
 
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                <button class="btn btn-lg btn-primary btn-block" type="submit"><?php echo  lang('button_login') ; ?></button>
             </form>
         </div> <?php //  /container  ?>
-        <?php //  IE10 viewport hack for Surface/desktop Windows 8 bug  ?>        <script src="<?php echo  base_url('assets/js/ie10-viewport-bug-workaround.js'); ?>"></script>
+        <?php //  IE10 viewport hack for Surface/desktop Windows 8 bug  ?>        <script src="<?php echo  base_url('assets/js/ie10-viewport-bug-workaround.js') ; ?>"></script>
     </body>
 </html>
 ";}

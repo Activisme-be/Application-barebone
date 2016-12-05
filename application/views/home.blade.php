@@ -29,14 +29,14 @@
      <body>
         <div class="container">
             <form class="form-signin" action="{{ base_url('verifylogin') }}" method="POST">
-                 <input type="email" name="email" class="form-control" placeholder="Email addres">
-                 <input type="password" name="password" class="form-control" placeholder="Password">
+                 <input type="email" name="email" class="form-control" placeholder="{{ lang('placeholder_email') }}">
+                 <input type="password" name="password" class="form-control" placeholder="{{ lang('placeholder_password') }}">
 
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">{{ lang('button_login') }}</button>
             </form>
         </div> {{-- /container --}}
 
         {{-- IE10 viewport hack for Surface/desktop Windows 8 bug --}}
-        <script src="{{ base_url('assets/js/ie10-viewport-bug-workaround.js')}}"></script>
+        <script src="{{ base_url('assets/js/ie10-viewport-bug-workaround.js') }}"></script>
     </body>
 </html>

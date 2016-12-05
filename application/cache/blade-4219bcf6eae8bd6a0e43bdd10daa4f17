@@ -1,4 +1,4 @@
-a:3:{s:4:"time";i:1480928513;s:3:"ttl";i:3600;s:4:"data";s:1907:"<?php //  Left side column. contains the sidebar  ?><aside class="main-sidebar">
+a:3:{s:4:"time";i:1480964962;s:3:"ttl";i:3600;s:4:"data";s:1907:"<?php //  Left side column. contains the sidebar  ?><aside class="main-sidebar">
     <?php //  sidebar: style can be found in sidebar.less  ?>    <section class="sidebar">
 
         <?php //  Sidebar user panel (optional)  ?>        <div class="user-panel">
