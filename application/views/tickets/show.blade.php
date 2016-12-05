@@ -21,7 +21,7 @@
                     </div>
                 </div>
                 <div class="box-body">
-                    {{ $ticket->description }}
+                    {{ $this->markdown->parse($ticket->description) }}
                 </div>{{-- /.box-body --}}
 
 
