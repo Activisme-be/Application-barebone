@@ -25,8 +25,9 @@ class Tickets extends MY_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->helper(['url']);
+        $this->load->helper(['url', 'language']);
         $this->load->library(['session', 'slack', 'form_validation', 'markdown', 'blade']);
+        $this->lang->load('tickets');
 
         $this->User = $this->session->userdata('logged_in');
     }

@@ -25,7 +25,6 @@
          parent::__construct();
          $this->load->library(['blade', 'session', 'form_validation']);
          $this->load->helper(['url']);
-
          $this->User = $this->session->userdata('logged_in');
      }
 
@@ -71,6 +70,8 @@
       */
      public function update()
      {
+         // FIXME: set method to regenerate the session data.
+
         $this->form_validation->set_rules('name', 'Name', 'trim|required');
         $this->form_validation->set_rules('username', 'Username', 'trim|required');
         $this->form_validation->set_rules('password', 'Password', 'trim|required');

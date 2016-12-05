@@ -21,7 +21,7 @@ class Verifylogin extends MY_Controller
         $this->load->database();
 
         $this->load->library(['session', 'blade', 'form_validation']);
-        $this->load->helper(['string', 'url']);
+        $this->load->helper(['string', 'url', 'language']);
         $this->lang->load('auth');
     }
 
