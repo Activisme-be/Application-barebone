@@ -92,7 +92,7 @@ class Users extends MY_Controller
             }
         } else { // Validation fails
             $class   = 'alert alert-danger';
-            $message = lang('flash_error_validation')
+            $message = lang('flash_error_validation');
         }
 
         $this->session->set_flashdata('class', $class);
