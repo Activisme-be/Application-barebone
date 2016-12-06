@@ -12,7 +12,7 @@ class Ticket extends Eloquent
      *
      * @var string
      */
-    protected $table =  'tickets';
+    protected $table =  'SYS_tickets';
 
     /**
      * Mass-assign fields

@@ -73,7 +73,7 @@ class Comment extends MY_Controller
             $relation = Ticket::find($this->uri->segment(3))->reactions()->attach($insert->id);
 
             if ($relation && $insert) { // Check if the comment is inserted and connected.
-                $class   = 'alert alert-success'
+                $class   = 'alert alert-success';
                 $message = lang('flash_insert');
             }
         }

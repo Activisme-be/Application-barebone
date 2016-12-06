@@ -12,7 +12,7 @@ class Applications extends Eloquent
      *
      * @var string
      */
-    protected $table = 'applications';
+    protected $table = 'SYS_applications';
 
     /**
      * Mass-assign fields.

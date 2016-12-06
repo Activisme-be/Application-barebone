@@ -12,7 +12,7 @@ class Category extends Eloquent
      *
      * @var string
      */
-    protected $table = 'categories';
+    protected $table = 'SYS_categories';
 
     /**
      * Mass-assign fields.
