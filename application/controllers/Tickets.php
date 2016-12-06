@@ -58,9 +58,9 @@ class Tickets extends MY_Controller
      */
     public function index()
     {
-        $data['title']             = 'tickets';
-        $data['page_title']        = 'Ticket Management';
-        $data['page_description']  = 'Ticket module voor activisme BE';
+        $data['title']             = lang('title_page_index');
+        $data['page_title']        = lang('title_index');
+        $data['page_description']  = lang('page_description_index');
         $data['relation']          = ['application', 'category', 'assignee', 'reactions.author'];
 
         // Query statements
@@ -91,11 +91,11 @@ class Tickets extends MY_Controller
             // var_dump(validation_errors());  // For debugging propose.
             // die();                          // For debugging propose.
 
-            $this->slack->send($this->User['name'] . ' heeft een ticket aangemaakt.');
+            $this->slack->send($this->User['name'] . ' ' . lang('slack_insert'));
 
             $this->session->set_flashdata('class', 'alert alert-danger');
-            $this->session->set_flashdata('message', 'Wij konden de creatie van het ticket verwerken.');
-
+            $this->session->set_flashdata('message', lang('error_validation_insert'));
+         
             redirect($_SERVER['HTTP_REFERER']);
         } else { // Validation passes
             $input['assignee_id']    = empty($this->input->post('assignee_id')) ? 0 : $this->input->post('assignee_id');
@@ -108,8 +108,8 @@ class Tickets extends MY_Controller
             $insert = Ticket::create($input);
 
             if ($insert) {
-                $this->session->set_flashdata('class', 'alert alert-success');
-                $this->session->set_flashdata('message', 'Het ticket is aangemaakt.');
+                $this->session->set_flashdata('class', trans('flash_ticket_create'));
+                $this->session->set_flashdata('message', 'alert alert-success');
             }
 
             redirect(base_url('tickets/show/' . $insert->id));
@@ -138,11 +138,11 @@ class Tickets extends MY_Controller
         $params = ['title' => $ticket->heading, 'body' => $ticket->description];
 
         if ($github->api('issue')->create('Activisme-be', 'Server-tickets', $params)) {
-            $this->slack->send($this->User['name'] . ' heeft een ticket doorgeduwd naar github.');
+            $this->slack->send($this->User['name'] . ' ' . lang('slack_github'));
 
             // Ticket created.
             $this->session->set_flashdata('class', 'Alert alert-success');
-            $this->session->set_flashdata('message', 'Het ticket is naar github verplaatst.');
+            $this->session->set_flashdata('message', trans('flash_github_hook'));
         }
 
         redirect(base_url('tickets'));
@@ -163,9 +163,10 @@ class Tickets extends MY_Controller
 
         $ticketId = $this->uri->segment(3);
 
+        $data['title']              = lang('title_page_show');
         $data['ticket']             = Ticket::with(['application', 'category', 'assignee'])->find($ticketId);
         $data['page_title']         = '<code>#T'. $data['ticket']->id .'</code> ' . $data['ticket']->heading;
-        $data['page_description']   = 'Ticket informatie';
+        $data['page_description']   = lang('page_description_show');
 
         // printf($data['ticket']);  // For debugging propose.
         // die();                    // For debugging propose.
@@ -186,10 +187,10 @@ class Tickets extends MY_Controller
         $ticketId = $this->uri->segment(3);
 
         if (Ticket::find($ticketId)->update(['status' => 1])) {
-            $this->slack->send($this->User['name'] . ' heeft een ticket gesloten.');
+            $this->slack->send($this->User['name'] . ' ' . lang('slack_delete'));
 
             $this->session->set_flashdata('class', 'alert alert-success');
-            $this->session->set_flashdata('message', 'Het ticket is verwijderd.');
+            $this->session->set_flashdata('message', lang('flash_ticket_delete'));
         }
 
         redirect($_SERVER['HTTP_REFERER']);

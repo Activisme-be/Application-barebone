@@ -26,7 +26,8 @@ class Users extends MY_Controller
     {
         parent::__construct();
         $this->load->library(['email', 'blade', 'session', 'form_validation']);
-        $this->load->helper(['url', 'string']);
+        $this->load->helper(['url', 'string', 'language']);
+        $this->lang->load('users');
 
         $this->User = $this->session->userdata('logged_in');
     }
@@ -57,9 +58,9 @@ class Users extends MY_Controller
      */
     public function index()
     {
-        $data['title']            = "Users overview.";
-        $data['page_title']       = 'Gebruikers beheer';
-        $data['page_description'] = 'Login module';
+        $data['title']            = lang('title_index');
+        $data['page_title']       = lang('title_page_index');
+        $data['page_description'] = lang('page_description_index');
         $data['users']            = Login::all();
 
         $this->blade->render('users/index', $data);
@@ -87,11 +88,11 @@ class Users extends MY_Controller
 
             if (Login::create($input)) { // The user has been created
                 $class   = 'alert alert-success';
-                $message = 'De gebruiker is opgesla&gen in het systeem.';
+                $message = lang('flash_insert');
             }
         } else { // Validation fails
             $class   = 'alert alert-danger';
-            $message = 'Wij konden de gebruiker niet opslaan in het systeem.';
+            $message = lang('flash_error_validation')
         }
 
         $this->session->set_flashdata('class', $class);
@@ -113,7 +114,7 @@ class Users extends MY_Controller
 
         if (Login::find($userId)->update(['blocked' => $status])) { // Try to update the user.
             $this->session->set_flashdata('class', 'alert alert-success');
-            $this->session->set_flashdata('message', 'De gebruiker zijn status is aangepast.');
+            $this->session->set_flashdata('message', lang('flash_status'));
         }
 
         redirect($_SERVER['HTTP_REFERER']);
@@ -146,7 +147,7 @@ class Users extends MY_Controller
              $this->email->set_mailtype('html');
 
              // Sending the mail notification.
-             if (! $this->email->send()) { // Check if the mail has been send.
+             if (! @$this->email->send()) { // Check if the mail has been send.
                 show_error($this->email->print_debugger());
              }
 
@@ -155,7 +156,7 @@ class Users extends MY_Controller
 
              // Set the flash message
              $this->session->set_flashdata('class', 'alert alert-success');
-             $this->session->set_flashdata('message', 'De login zijn wachtwoord is ge-reset.');
+             $this->session->set_flashdata('message', lang('flash_reset'));
 
          }
 
@@ -172,7 +173,7 @@ class Users extends MY_Controller
     {
         if (Login::destroy($this->uri->segment(3))) { // Tring to destroy the user.
             $this->session->set_flashdata('class', 'alert alert-success');
-            $this->session->set_flashdata('message', 'De login is verwijderd');
+            $this->session->set_flashdata('message', lang('flash_delete'));
         }
 
         redirect($_SERVER['HTTP_REFERER']);
@@ -186,8 +187,13 @@ class Users extends MY_Controller
      */
     public function logout()
     {
+        // Destroy the user session.
         $this->session->unset_userdata('logged_in');
         $this->session->sess_destroy();
+
+        // Set the flash session.
+        $this->session->set_flashdata('class', 'alert alert-success');
+        $this->session->set_flashdata('message', lang('flash_logout'));
 
         redirect('/');
     }

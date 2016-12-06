@@ -24,7 +24,8 @@
      {
          parent::__construct();
          $this->load->library(['session', 'blade', 'form_validation']);
-         $this->load->helper(['url']);
+         $this->load->helper(['url', 'language']);
+         $this->load->lang('application');
 
          $this->User = $this->session->userdata('logged_in');
      }
@@ -62,8 +63,8 @@
              // printf(validation_errors());    // For debugging propose
              // die();                          // For debugging propose
 
-            $this->session->set_flashdata('class', 'alert alert-danger');
-            $this->session->set_flashdata('message', 'Wij konden de invoer niet verwerken');
+             $class   = 'alert alert-danger';
+             $message = flash('flash_error_validation');
          } else { // Validation passes
             $input['name']       = $this->input->post('name');
             $input['user_id']    = $this->User['id'];
@@ -74,9 +75,12 @@
             Applications::create($input);
 
             // Set the flash message
-            $this->session->set_flashdata('class', 'alert alert-success');
-            $this->session->set_flashdata('message', 'De applicatie is aangemaakt in het systeem.');
+            $class   = 'alert alert-success';
+            $message = flash('flash_insert');
          }
+
+         $this->session->set_flashdata('class', $class);
+         $this->session->set_flashdata('message', $message);
 
          redirect($_SERVER['HTTP_REFERER']);
      }
@@ -95,10 +99,10 @@
             Applications::destroy($appId);
 
             $class   = 'alert alert-success';
-            $message = 'De applicatie is verwijderd.';
+            $message = lang('flash_delete');
         } else { // The application id isn't set.
             $class   = 'alert alert-danger';
-            $message = 'Kan de applicatie niet verwijderen.';
+            $message = lang('flash_error_param');
         }
 
         // Set flash message.

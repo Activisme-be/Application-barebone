@@ -26,7 +26,8 @@ class Comment extends MY_Controller
     {
         parent::__construct();
         $this->load->library(['blade', 'session', 'form_validation']);
-        $this->load->helper(['url']);
+        $this->load->helper(['url', 'language']);
+        $this->lang->load('comment');
 
         $this->User = $this->session->userdata('logged_in');
     }
@@ -62,8 +63,8 @@ class Comment extends MY_Controller
         $this->form_validation->set_rules('comment', 'Comment', 'trim|required');
 
         if ($this->form_validation->run() === false) { // Validation fails
-            $this->session->set_flashdata('class', 'alert alert-danger');
-            $this->session->set_flashdata('message', 'Wij konden uw reactie niet opslaan.');
+            $class   = 'alert alert-danger';
+            $message = lang('flash_error_validation_insert');
         } else { // Validation passes
             $input['author_id'] = $this->User['id'];
             $input['comment']   = $this->input->post('comment');
@@ -72,10 +73,13 @@ class Comment extends MY_Controller
             $relation = Ticket::find($this->uri->segment(3))->reactions()->attach($insert->id);
 
             if ($relation && $insert) { // Check if the comment is inserted and connected.
-                $this->session->set_flashdata('class', 'alert alert-danger');
-                $this->session->set_flashdata('message', 'Uw reactie is opgeslagen.');
+                $class   = 'alert alert-success'
+                $message = lang('flash_insert');
             }
         }
+
+        $this->session->set_flashdata('class', $class);
+        $this->session->set_flashdata('message', $message);
 
         redirect($_SERVER['HTTP_REFERER']);
     }
@@ -92,20 +96,20 @@ class Comment extends MY_Controller
 
         if ($this->form_validation->run() === false) { // Validation fails
             $class   = 'alert alert-danger';
-            $message = 'Wij konden de wijziging niet doorvoeren.'
+            $message = lang('flash_error_validation_edit');
         } else { // Validation passes
             $commentId = $this->uri->segment(3);
             $comment   = Reactions::find($commentId);
 
             if ($comment->author_id !== $this->User['id']) { // The requester is not the author.
                 $class   = 'alert alert-danger';
-                $message = 'U hebt geen rechten om deze handeling uit te voeren.';
+                $message = flash('flash_error_no_rights');
 
                 $input['comment'] = $this->input->post('comment');
 
                 if (Reactions::find($commentId)->update($input)) { // The author has changed his comment.
                     $class   = 'alert alert-success';
-                    $message = 'Uw reactie is aangepast';
+                    $message = lang('flash_edit');
                 }
             }
         }
@@ -124,8 +128,6 @@ class Comment extends MY_Controller
      */
     public function destroy()
     {
-        // FIXME: Set flash data to variables. and set the flash data out off the if/else structures.
-
         $ticketId  = $this->uri->segment(3);
         $commentId = $this->uri->segment(4);
 
@@ -134,13 +136,16 @@ class Comment extends MY_Controller
 
         if (isset($ticketId) && isset($commentId)) { // Check if both params are set.
             if ($relation && $delete) { // Test if the comment is deleted & remove the relation.
-                $this->session->set_flashdata('class', 'alert alert-success');
-                $this->session->set_flashdata('message', 'De reactie is verwijderd.');
+                $class   = 'alert alert-success';
+                $message = flash('flash_delete');
             }
         } else { // The parameters are incorrect.
-            $this->session->set_flashdata('class', 'alert alert-success');
-            $this->session->set_flashdata('message', 'Een van de parameters is niet gedifineerd.');
+            $class   = 'alert alert-success';
+            $message = flash('flash_error_params');
         }
+
+        $this->session->set_flashdata('class', $class);
+        $this->session->set_flashdata('message', $message);
 
         redirect($_SERVER['HTTP_REFERER']);
     }

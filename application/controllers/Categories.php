@@ -26,7 +26,8 @@ class Categories extends MY_Controller
     {
         parent::__construct();
         $this->load->library(['blade', 'session', 'form_validation']);
-        $this->load->helper(['url']);
+        $this->load->helper(['url', 'language']);
+        $this->lang->load('category');
 
         $this->User = $this->session->userdata('logged_in');
     }
@@ -65,7 +66,7 @@ class Categories extends MY_Controller
             // die();                           // For debugging propose
 
             $class   = 'alert alert-danger';
-            $message = 'uw invoer kon niet verwerkt worden.';
+            $message = lang('flash_error_validation_insert');
         } else { // Validation passes
             $input['user_id']     = $this->User['id'];
             $input['name']        = $this->input->post('name');
@@ -73,7 +74,7 @@ class Categories extends MY_Controller
 
             if (Category::create($input)) { // The category is inserted.
                 $class   = 'alert alert-success';
-                $message = 'De categoie is toegevoegd.';
+                $message = lang('flash_insert');
             }
         }
 
@@ -96,12 +97,12 @@ class Categories extends MY_Controller
 
         if (! empty($categoryId)) { // The category id isn't empty
             $class   = 'alert alert-success';
-            $message = 'De categorie is toegevoegd.';
+            $message = lang('flash_error_param');
 
             Category::destroy($categoryId);
         } else { // The category is empty
             $class   = 'alert alert-danger';
-            $message = 'Wij konden de catgorie niet aanmaken.';
+            $message = lang('flash_delete');
         }
 
         // Set the flash message.
