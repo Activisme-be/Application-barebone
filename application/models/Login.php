@@ -12,7 +12,7 @@ class Login extends Eloquent
      *
      * @var string
      */
-    protected $table =  'users';
+    protected $table =  'sys_users';
 
     /**
      * Mass-assign fields
@@ -35,6 +35,6 @@ class Login extends Eloquent
      */
     public function permissions()
     {
-        return $this->belongsToMany('Permissions')->select('role');
+        return $this->belongsToMany('Permissions', 'pivot_login_permissions', 'permissions_id', 'login_id')->select('role');
     }
 }

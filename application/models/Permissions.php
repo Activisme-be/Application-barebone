@@ -12,7 +12,7 @@ class Permissions extends Eloquent
      *
      * @var string
      */
-    protected $table = 'permissions';
+    protected $table = 'sys_permissions';
 
     /**
      * Mass-assign fields.

@@ -1,4 +1,4 @@
-a:3:{s:4:"time";i:1480973417;s:3:"ttl";i:3600;s:4:"data";s:1926:"<?php if ($categories->count() > 0): ?>
+a:3:{s:4:"time";i:1481154784;s:3:"ttl";i:3600;s:4:"data";s:1926:"<?php if ($categories->count() > 0): ?>
     <table class="table table-condensed table-hover">
         <thead>
             <tr>
