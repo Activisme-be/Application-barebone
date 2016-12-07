@@ -62,15 +62,14 @@ class Verifylogin extends MY_Controller
         $query = Login::where('email', $input['email'])
             ->with('permissions')
             ->where('blocked', 0)
-            ->where('password', md5($password))
-            ->get();
+            ->where('password', $password);
 
-        if (count($query) === 1) { // Result is found and now we can build up the session.
+        if ($query->count() == 1) { // Result is found and now we can build up the session.
             $authencation = []; // Empty session array.
             $permissions  = []; // Empty permission array.
 
             // Build up the session token.
-            foreach ($query as $user) { // Define the data to the session array.
+            foreach ($query->get() as $user) { // Define the data to the session array.
                 // Build up the permission array
                 foreach ($user->permissions as $perm) { // Set every key to the array.
                     array_push($permissions, $perm->role); // Push every key invidual to the permissions array.
@@ -82,7 +81,6 @@ class Verifylogin extends MY_Controller
                 $authencation['roles']  = $permissions;
             }
 
-            $this->session->set_userdata('logged_in', $authencation);
             return true;
         } else { // There are no user find with the given data.
             $this->form_validation->set_message('check_database', lang('wrong_crendetails'));
