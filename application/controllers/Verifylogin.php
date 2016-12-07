@@ -81,6 +81,7 @@ class Verifylogin extends MY_Controller
                 $authencation['roles']  = $permissions;
             }
 
+            $this->session->set_userdata('logged_in', $authencation);
             return true;
         } else { // There are no user find with the given data.
             $this->form_validation->set_message('check_database', lang('wrong_crendetails'));
