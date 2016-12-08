@@ -12,7 +12,7 @@ class Ticket extends Eloquent
      *
      * @var string
      */
-    protected $table =  'tickets';
+    protected $table =  'sys_tickets';
 
     /**
      * Mass-assign fields
@@ -37,7 +37,7 @@ class Ticket extends Eloquent
      */
     public function reactions()
     {
-        return $this->belongstoMany('Reactions');
+        return $this->belongstoMany('Reactions', 'pivot_reactions_ticket');
     }
 
 

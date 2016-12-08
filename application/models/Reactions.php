@@ -12,7 +12,7 @@ class Reactions extends Eloquent
      *
      * @var string
      */
-    protected $table = 'reactions';
+    protected $table = 'sys_reactions';
 
     /**
      * Mass-assign fields.
