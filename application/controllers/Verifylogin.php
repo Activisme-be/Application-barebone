@@ -21,7 +21,7 @@ class Verifylogin extends MY_Controller
         $this->load->database();
 
         $this->load->library(['session', 'blade', 'form_validation']);
-        $this->load->helper(['string', 'url', 'language']);
+        $this->load->helper(['string', 'url', 'language', 'cookie']);
         $this->lang->load('auth');
     }
 
@@ -82,6 +82,7 @@ class Verifylogin extends MY_Controller
             }
 
             $this->session->set_userdata('logged_in', $authencation);
+
             return true;
         } else { // There are no user find with the given data.
             $this->form_validation->set_message('check_database', lang('wrong_crendetails'));
