@@ -1,7 +1,9 @@
 // USED LIBRARIES.
 // ----------------------------------------------
 var gulp       = require('gulp-help')(require('gulp'));
-var livereload = require('gulp-livereload');
+var cleanCss   = require('gulp-clean-css');
+var uglify     = require('gulp-uglify');
+var pump       = require('pump');
 
 // CSS File array
 var CssFiles = [
@@ -17,7 +19,7 @@ var ImgFiles = ['./node_modules/admin-lte/dist/img/user2-160x160.jpg'];
 
 // COMMAND: gulp
 gulp.task('default', 'The default task for gulp.', function() {
-    gulp.start('copy-js', 'copy-css', 'copy-avatar');
+    gulp.start('copy-js', 'copy-css', 'copy-avatar', 'minify-css', 'uglify-js');
 });
 
 // COMMAND: gulp copy-css
@@ -38,8 +40,14 @@ gulp.task('copy-avatar', 'Copy the default avatar to the asset folder.', functio
         .pipe(gulp.dest('./assets/img'));
 });
 
-// COMMAND: gulp watch
-// gulp.task('watch', function () {
-//     livereload.listen();
-//     gulp.watch(['dist/**']).on('change', livereload.changed);
-// });
+// COMMAND: gulp js-uglify
+gulp.task('uglify-js', 'Minify the .js files', function (callback) {
+    pump([gulp.src('./assets/js/*.js'), uglify(), gulp.dest('./assets/js')], callback);
+})
+
+// COMMAND: gulp minify-css
+gulp.task('minify-css', 'Minify all the css related files.', function (callback) {
+    return gulp.src('./assets/css/*.css')
+        .pipe(cleanCss())
+        .pipe(gulp.dest('./assets/css'))
+});

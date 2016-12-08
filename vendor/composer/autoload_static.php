@@ -158,15 +158,16 @@ class ComposerStaticInitf6ba727c969f4c08eb8d556d90f06f67
     );
 
     public static $classMap = array (
-        'Applications' => __DIR__ . '/../..' . '/../../../clients/tom-manheaghe/commander-platform/application/models/Applications.php',
-        'Blade' => __DIR__ . '/../..' . '/../../../clients/tom-manheaghe/commander-platform/application/libraries/Blade.php',
-        'Category' => __DIR__ . '/../..' . '/../../../clients/tom-manheaghe/commander-platform/application/models/Category.php',
-        'Login' => __DIR__ . '/../..' . '/../../../clients/tom-manheaghe/commander-platform/application/models/Login.php',
-        'MY_Controller' => __DIR__ . '/../..' . '/../../../clients/tom-manheaghe/commander-platform/application/core/MY_Controller.php',
-        'Permissions' => __DIR__ . '/../..' . '/../../../clients/tom-manheaghe/commander-platform/application/models/Permissions.php',
-        'Reactions' => __DIR__ . '/../..' . '/../../../clients/tom-manheaghe/commander-platform/application/models/Reactions.php',
-        'Slack' => __DIR__ . '/../..' . '/../../../clients/tom-manheaghe/commander-platform/application/libraries/Slack.php',
-        'Ticket' => __DIR__ . '/../..' . '/../../../clients/tom-manheaghe/commander-platform/application/models/Ticket.php',
+        'Applications' => __DIR__ . '/../..' . '/application/models/Applications.php',
+        'Blade' => __DIR__ . '/../..' . '/application/libraries/Blade.php',
+        'Category' => __DIR__ . '/../..' . '/application/models/Category.php',
+        'Login' => __DIR__ . '/../..' . '/application/models/Login.php',
+        'MY_Controller' => __DIR__ . '/../..' . '/application/core/MY_Controller.php',
+        'Markdown' => __DIR__ . '/../..' . '/application/libraries/Markdown.php',
+        'Permissions' => __DIR__ . '/../..' . '/application/models/Permissions.php',
+        'Reactions' => __DIR__ . '/../..' . '/application/models/Reactions.php',
+        'Slack' => __DIR__ . '/../..' . '/application/libraries/Slack.php',
+        'Ticket' => __DIR__ . '/../..' . '/application/models/Ticket.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

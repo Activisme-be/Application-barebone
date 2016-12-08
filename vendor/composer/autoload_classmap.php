@@ -6,13 +6,14 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Applications' => $baseDir . '/../../../clients/tom-manheaghe/commander-platform/application/models/Applications.php',
-    'Blade' => $baseDir . '/../../../clients/tom-manheaghe/commander-platform/application/libraries/Blade.php',
-    'Category' => $baseDir . '/../../../clients/tom-manheaghe/commander-platform/application/models/Category.php',
-    'Login' => $baseDir . '/../../../clients/tom-manheaghe/commander-platform/application/models/Login.php',
-    'MY_Controller' => $baseDir . '/../../../clients/tom-manheaghe/commander-platform/application/core/MY_Controller.php',
-    'Permissions' => $baseDir . '/../../../clients/tom-manheaghe/commander-platform/application/models/Permissions.php',
-    'Reactions' => $baseDir . '/../../../clients/tom-manheaghe/commander-platform/application/models/Reactions.php',
-    'Slack' => $baseDir . '/../../../clients/tom-manheaghe/commander-platform/application/libraries/Slack.php',
-    'Ticket' => $baseDir . '/../../../clients/tom-manheaghe/commander-platform/application/models/Ticket.php',
+    'Applications' => $baseDir . '/application/models/Applications.php',
+    'Blade' => $baseDir . '/application/libraries/Blade.php',
+    'Category' => $baseDir . '/application/models/Category.php',
+    'Login' => $baseDir . '/application/models/Login.php',
+    'MY_Controller' => $baseDir . '/application/core/MY_Controller.php',
+    'Markdown' => $baseDir . '/application/libraries/Markdown.php',
+    'Permissions' => $baseDir . '/application/models/Permissions.php',
+    'Reactions' => $baseDir . '/application/models/Reactions.php',
+    'Slack' => $baseDir . '/application/libraries/Slack.php',
+    'Ticket' => $baseDir . '/application/models/Ticket.php',
 );
