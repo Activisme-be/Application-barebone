@@ -88,8 +88,8 @@ class Tickets extends MY_Controller
         $this->form_validation->set_rules('category', 'Category', 'trim|required');
 
         if ($this->form_validation->run() === false) { // Validation fails
-            // var_dump(validation_errors());  // For debugging propose.
-            // die();                          // For debugging propose.
+            var_dump(validation_errors());  // For debugging propose.
+            die();                          // For debugging propose.
 
             $this->slack->send($this->User['name'] . ' ' . lang('slack_insert'));
 
@@ -108,7 +108,7 @@ class Tickets extends MY_Controller
             $insert = Ticket::create($input);
 
             if ($insert) {
-                $this->session->set_flashdata('class', trans('flash_ticket_create'));
+                $this->session->set_flashdata('class', lang('flash_ticket_create'));
                 $this->session->set_flashdata('message', 'alert alert-success');
             }
 

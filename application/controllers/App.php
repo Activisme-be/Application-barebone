@@ -25,7 +25,7 @@
          parent::__construct();
          $this->load->library(['session', 'blade', 'form_validation']);
          $this->load->helper(['url', 'language']);
-         $this->load->lang('application');
+         $this->lang->load('application');
 
          $this->User = $this->session->userdata('logged_in');
      }
@@ -76,7 +76,7 @@
 
             // Set the flash message
             $class   = 'alert alert-success';
-            $message = flash('flash_insert');
+            $message = lang('flash_insert');
          }
 
          $this->session->set_flashdata('class', $class);

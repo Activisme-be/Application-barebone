@@ -19,7 +19,7 @@ $lang['title_page_index'] = 'Gebruikers beheer';
  * PAGE DESCRIPTION LANGUAGE LINES
  * ---------------------------------------------------------------------------
  */
-$lang['page_description_index'] = 'Login module'
+$lang['page_description_index'] = 'Login module';
 
 /**
  * ---------------------------------------------------------------------------

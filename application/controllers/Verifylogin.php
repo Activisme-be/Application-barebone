@@ -62,7 +62,7 @@ class Verifylogin extends MY_Controller
         $query = Login::where('email', $input['email'])
             ->with('permissions')
             ->where('blocked', 0)
-            ->where('password', $password);
+            ->where('password', md5($password));
 
         if ($query->count() == 1) { // Result is found and now we can build up the session.
             $authencation = []; // Empty session array.
