@@ -116,7 +116,7 @@ class Tickets extends MY_Controller
                 redirect(base_url('tickets/show/' . $insert->id));
             }
 
-            redirect($_SERVER['HTTP_REFERER']; // The user has no authencation. 
+            redirect($_SERVER['HTTP_REFERER']; // The user has no authencation.
         }
     }
 
@@ -146,7 +146,7 @@ class Tickets extends MY_Controller
 
             // Ticket created.
             $this->session->set_flashdata('class', 'Alert alert-success');
-            $this->session->set_flashdata('message', trans('flash_github_hook'));
+            $this->session->set_flashdata('message', lang('flash_github_hook'));
         }
 
         redirect(base_url('tickets'));

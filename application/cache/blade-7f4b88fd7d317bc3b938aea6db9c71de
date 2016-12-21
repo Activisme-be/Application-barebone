@@ -1,4 +1,4 @@
-a:3:{s:4:"time";i:1481159531;s:3:"ttl";i:3600;s:4:"data";s:2199:"<!DOCTYPE html>
+a:3:{s:4:"time";i:1481599362;s:3:"ttl";i:3600;s:4:"data";s:4250:"<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -29,8 +29,43 @@ a:3:{s:4:"time";i:1481159531;s:3:"ttl";i:3600;s:4:"data";s:2199:"<!DOCTYPE html>
                  <input type="password" name="password" class="form-control" placeholder="<?php echo  lang('placeholder_password') ; ?>">
 
                 <button class="btn btn-lg btn-primary btn-block" type="submit"><?php echo  lang('button_login') ; ?></button>
+                <a href="" class="btn btn-lg btn-danger btn-block" data-toggle="modal" data-target="#reset"><?php echo  lang('button_reset') ; ?></a>
             </form>
         </div> <?php //  /container  ?>
+        <?php //  Reset modal  ?>        <div class="modal fade" id="reset" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Reset wachtwoord.</h4>
+                    </div>
+
+                    <div class="modal-body">
+                        <form method="POST" action="<?php echo  base_url('users/reset') ; ?>" class="form-horizontal">
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">
+                                    E-mail: <span class="text-danger">*</span>
+                                </label>
+
+                                <div class="col-sm-10">
+                                    <input class="form-control" name="email" placeholder="Email adres" />
+                                </div>
+                            </div>
+                        <?php //  Form is closed in the footer.  ?>                    </div>
+
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Sluiten</button>
+                        </form>
+
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Reset</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php //  /Reset modal  ?>
+        <?php //  Bootstrap javascript  ?>        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
         <?php //  IE10 viewport hack for Surface/desktop Windows 8 bug  ?>        <script src="<?php echo  base_url('assets/js/ie10-viewport-bug-workaround.js') ; ?>"></script>
     </body>
 </html>
