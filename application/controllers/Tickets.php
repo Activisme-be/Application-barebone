@@ -95,7 +95,7 @@ class Tickets extends MY_Controller
 
             $this->session->set_flashdata('class', 'alert alert-danger');
             $this->session->set_flashdata('message', lang('error_validation_insert'));
-         
+
             redirect($_SERVER['HTTP_REFERER']);
         } else { // Validation passes
             $input['assignee_id']    = empty($this->input->post('assignee_id')) ? 0 : $this->input->post('assignee_id');
@@ -112,7 +112,11 @@ class Tickets extends MY_Controller
                 $this->session->set_flashdata('message', 'alert alert-success');
             }
 
-            redirect(base_url('tickets/show/' . $insert->id));
+            if ($this->User) { // The user is autheticated
+                redirect(base_url('tickets/show/' . $insert->id));
+            }
+
+            redirect($_SERVER['HTTP_REFERER']; // The user has no authencation.
         }
     }
 
@@ -142,7 +146,7 @@ class Tickets extends MY_Controller
 
             // Ticket created.
             $this->session->set_flashdata('class', 'Alert alert-success');
-            $this->session->set_flashdata('message', trans('flash_github_hook'));
+            $this->session->set_flashdata('message', lang('flash_github_hook'));
         }
 
         redirect(base_url('tickets'));

@@ -137,11 +137,11 @@ class Comment extends MY_Controller
         if (isset($ticketId) && isset($commentId)) { // Check if both params are set.
             if ($relation && $delete) { // Test if the comment is deleted & remove the relation.
                 $class   = 'alert alert-success';
-                $message = flash('flash_delete');
+                $message = lang('flash_delete');
             }
         } else { // The parameters are incorrect.
             $class   = 'alert alert-success';
-            $message = flash('flash_error_params');
+            $message = lang('flash_error_params');
         }
 
         $this->session->set_flashdata('class', $class);

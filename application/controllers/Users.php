@@ -128,36 +128,46 @@ class Users extends MY_Controller
      */
      public function reset()
      {
-         $data['user'] = Login::find($this->uri->segment(3));
          $data['pass'] = random_string('alnum', 18);
 
-         if ($data['user']->update(['password' => md5($data['pass'])])) { // Update the account.
-             // Email init
-             $config['smtp_host'] = "send.one.com";
-             $config['smtp_port'] = "465";
-             $config['mailtype']  = 'html';
-             $config['charset']   = 'utf-8';
-             $this->email->initialize($config);
-
-             // Set the mail notification.
-             $this->email->from($this->config->item('dev_email'), $this->config->item('dev_name'));
-             $this->email->to($data['user']->email);
-             $this->email->subject($this->config->item('app_name') . ' - Reset wachtwoord.');
-             $this->email->message($this->blade->render('email/reset', $data));
-             $this->email->set_mailtype('html');
-
-             // Sending the mail notification.
-             if (! @$this->email->send()) { // Check if the mail has been send.
-                show_error($this->email->print_debugger());
+         if (isset($this->uri->segment(3)) || $this->input->post('email')) { // The is an paramater or input field found.
+             if ((int) count(Login::find($this->uri->segment(3))) === 1) { // There is a user found with the URI segment.
+                 $data['user'] = Login::find($this->uri->segment(3));
+             } elseif((int) count(Login::where('email', $this->input->post('email'))) === 1) { // There is a record found with the input field.
+                $data['user'] = Login::where('email', $this->input-post('email'))
              }
 
-             // Clear the mail cache.
-             $this->email->clear();
+             if ($data['user']->update(['password' => md5($data['pass'])])) { // Update the account.
+                 // Email init
+                 $config['smtp_host'] = "send.one.com";
+                 $config['smtp_port'] = "465";
+                 $config['mailtype']  = 'html';
+                 $config['charset']   = 'utf-8';
+                 $this->email->initialize($config);
 
-             // Set the flash message
-             $this->session->set_flashdata('class', 'alert alert-success');
-             $this->session->set_flashdata('message', lang('flash_reset'));
+                 // Set the mail notification.
+                 $this->email->from($this->config->item('dev_email'), $this->config->item('dev_name'));
+                 $this->email->to($data['user']->email);
+                 $this->email->subject($this->config->item('app_name') . ' - Reset wachtwoord.');
+                 $this->email->message($this->blade->render('email/reset', $data));
+                 $this->email->set_mailtype('html');
 
+                 // Sending the mail notification.
+                 if (! @$this->email->send()) { // Check if the mail has been send.
+                    show_error($this->email->print_debugger());
+                 }
+
+                 // Clear the mail cache.
+                 $this->email->clear();
+
+                 // Set the flash message
+                 $this->session->set_flashdata('class', 'alert alert-success');
+                 $this->session->set_flashdata('message', lang('flash_reset'));
+
+             }
+         } else { // No parameter of input field found.
+             $this->session->set_flashdata('class', 'alert alert-danger');
+             $this->session->set_flashdata('message', 'We could not reset the password.');
          }
 
          redirect($_SERVER['HTTP_REFERER']);
