@@ -11,7 +11,7 @@
 class Verifylogin extends MY_Controller
 {
     /**
-     * Vaerifylogin constructor
+     * Verifylogin constructor
      *
      * @return void
      */
