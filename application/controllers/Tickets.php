@@ -116,7 +116,7 @@ class Tickets extends MY_Controller
                 redirect(base_url('tickets/show/' . $insert->id));
             }
 
-            redirect($_SERVER['HTTP_REFERER']; // The user has no authencation.
+            redirect($_SERVER['HTTP_REFERER']); // The user has no authencation.
         }
     }
 
